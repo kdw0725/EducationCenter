@@ -162,49 +162,7 @@ public class StudentSignIn {
 
 	}
 
+	
 
-	private int check(StudentBasic student) {
-
-
-		Connection conn = null;
-		PreparedStatement stat = null;
-		ResultSet rs = null;
-		DBUtil util = new DBUtil();
-
-		try {
-			conn = util.open();
-			// 아이디 중복확인
-			String sql = "SELECT COUNT(*) AS CNT FROM TBL_STUDENT WHERE ID = ?";
-
-			stat = conn.prepareStatement(sql);
-			stat.setString(1, student.getId());
-			rs = stat.executeQuery();
-
-			if (rs.next()) {
-				if (rs.getInt("CNT") != 0) {
-					return 0;
-				}
-			}
-
-			// 주민번호 중복확인
-			sql = "SELECT COUNT(*) AS CNT FROM TBL_STUDENT WHERE SSN = ?";
-			stat = conn.prepareStatement(sql);
-			stat.setString(1, student.getSsn());
-			rs = stat.executeQuery();
-
-			if (rs.next()) {
-				if (rs.getInt("CNT") != 0) {
-					return 0;
-				}
-			}
-
-			conn.close();
-		} catch (Exception e) {
-			System.out.println("StudentSignIn.enclosing_method()");
-			e.printStackTrace();
-		}
-		return 0;
-
-	}
 
 }
