@@ -2,7 +2,8 @@ package main;
 
 import java.util.Scanner;
 
-import jdbc.DBUtil;
+import student.StudentBasic;
+import student.StudentLogIn;
 import student.StudentSignIn;
 
 /**
@@ -28,6 +29,9 @@ public class ProjectMain {
 			
 			if (input.equals("1")) {
 				// 학생 로그인
+				StudentLogIn login = new StudentLogIn();
+				StudentBasic logInStudent = login.logIn();
+				System.out.println(logInStudent.toString());
 			} else if (input.equals("2")) {
 				// 교사 로그인
 			} else if (input.equals("3")) {

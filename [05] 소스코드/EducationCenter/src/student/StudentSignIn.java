@@ -14,6 +14,9 @@ import jdbc.DBUtil;
  */
 public class StudentSignIn {
 
+	/**
+	 * 학생 회원가입 입력 폼
+	 */
 	public void signInInput() {
 		Scanner sc = new Scanner(System.in);
 
@@ -65,7 +68,7 @@ public class StudentSignIn {
 		}
 		
 		
-
+		// 모든 유효성 검사
 		if (nameFail == true || idFail == true || ssnFail == true || telFail == true || idOverlap == true || idOverlap == true || ssnOverlap == true) {
 			System.out.println("뒤로 가시려면 0번을, 다시 정보를 입력하시려면 아무 키나 입력해주세요.");
 			String input = sc.nextLine();
@@ -73,15 +76,41 @@ public class StudentSignIn {
 				signInInput();
 			}
 		} else {
-			
-			try {
-				
-			} catch (Exception e) {
-				System.out.println("StudentSignIn.signInInput()");
-				e.printStackTrace();
-			}
+			// 회원가입
+			signInDo(student);
+			sc.nextLine();
 		}
 
+	}
+
+	// 회원가입 메소드
+	private void signInDo(StudentBasic student) {
+		Connection conn = null;
+		PreparedStatement stat = null;
+		ResultSet rs = null;
+		DBUtil util = new DBUtil();
+		
+		try {
+			conn = util.open();
+			String sql = "INSERT INTO TBL_STUDENT(SEQ, NAME, ID, SSN, TEL, ACCOUNT) VALUES(STUDENT_SEQ.NEXTVAL, ?, ?, ?, ?, ?)";
+			
+			stat = conn.prepareStatement(sql);
+			
+			stat.setString(1, student.getName());
+			stat.setString(2, student.getId());
+			stat.setString(3, student.getSsn());
+			stat.setString(4, student.getTel());
+			stat.setString(5, student.getAccount().equals("") ? null : student.getAccount());
+			
+			stat.executeUpdate();
+			
+			stat.close();
+			conn.close();
+			System.out.println("회원가입이 완료 되었습니다. 처음 화면으로 돌아가시려면 엔터를 입력해주세요.");
+		} catch (Exception e) {
+			System.out.println("StudentSignIn.signInDo()");
+			e.printStackTrace();
+		}
 	}
 
 	// 전화번호 유효성검사
@@ -141,6 +170,8 @@ public class StudentSignIn {
 		PreparedStatement stat = null;
 		ResultSet rs = null;
 		DBUtil util = new DBUtil();
+		
+		int cnt = 1;
 
 		try {
 			conn = util.open();
@@ -152,13 +183,16 @@ public class StudentSignIn {
 			rs = stat.executeQuery();
 
 			if (rs.next()) {
-				return rs.getInt("CNT");
+				cnt = rs.getInt("CNT");
+				stat.close();
+				conn.close();
 			}
 		}catch (Exception e) {
 			System.out.println("StudentSignIn.checkIdOverlap()");
 			e.printStackTrace();
 		}
-		return 1;
+		
+		return cnt;
 
 	}
 

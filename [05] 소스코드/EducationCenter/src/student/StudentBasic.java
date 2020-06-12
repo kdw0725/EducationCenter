@@ -16,8 +16,6 @@ public class StudentBasic {
 	private String regdate;
 	private boolean delflag;
 	
-	
-
 	public StudentBasic(String name, String id, String ssn, String tel, String account) {
 		this.name = name;
 		this.id = id;
@@ -25,6 +23,21 @@ public class StudentBasic {
 		this.tel = tel;
 		this.account = account;
 	}
+	
+	
+
+	public StudentBasic(int seq, String name, String id, String ssn, String tel, String account, String regdate, String delflag) {
+		this.seq = seq;
+		this.name = name;
+		this.id = id;
+		this.ssn = ssn;
+		this.tel = tel;
+		this.account = account;
+		this.regdate = regdate;
+		this.delflag = delflag.equals("Y") ? true : false;
+	}
+
+
 
 	public int getSeq() {
 		return seq;
