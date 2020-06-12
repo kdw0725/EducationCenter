@@ -92,10 +92,12 @@ public class StudentMain {
 				
 				
 			} else if (num.equals("3")) { //출결 관리
-//				Student_CheckAttend sca = new Student_CheckAttend();
-//				sca.student_checkattend(stuseq);
+				StudentCheckAttend studentCheckAttend = new StudentCheckAttend();
+				studentCheckAttend.studentAttendMain(logInStudent);
 				
 			} else if (num.equals("4")) { //체온 조회
+				StudentCheckCovid studentCheckCovid = new StudentCheckCovid();
+				studentCheckCovid.checkCovid(logInStudent);
 //				Student_CheckCovid scc = new Student_CheckCovid();
 //				scc.student_checkcovid(stuseq);
 				

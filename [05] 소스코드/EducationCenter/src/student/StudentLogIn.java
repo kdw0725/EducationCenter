@@ -9,7 +9,7 @@ import jdbc.DBUtil;
 
 /**
  * 
- * @author 장정우
+ * @author 장정우, 김동욱
  * 학생 로그인 관련 클래스
  */
 public class StudentLogIn {

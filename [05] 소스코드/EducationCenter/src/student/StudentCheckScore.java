@@ -11,10 +11,14 @@ import oracle.jdbc.OracleTypes;
 /**
  * 
  * @author 장정우
- *
+ * 학생의 점수를 출력해주는 클래스
  */
 public class StudentCheckScore {
 	
+	/**
+	 * 학생이 수강하고 있는 모든 과목의 점수를 출력해주는 메소드
+	 * @param 로그인된 학생 정보
+	 */
 	public void showScore(StudentBasic logInStudent) {
 		Connection conn = null;
 		CallableStatement stat = null;
