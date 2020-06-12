@@ -2,8 +2,8 @@ package admin;
 
 /**
  * 
- * @author ±èµ¿¿í
- * °ü¸®ÀÚ Á¤º¸ DTO
+ * @author ê¹€ë™ìš±
+ * ê´€ë¦¬ì ì •ë³´ DTO
  */
 public class AdminBasic {
 

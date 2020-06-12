@@ -7,8 +7,8 @@ import student.StudentSignIn;
 
 /**
  * 
- * @author ±èµ¿¿í
- * ½Ö¿ë ±³À°¼¾ÅÍ JDBC ÇÁ·ÎÁ§Æ®
+ * @author ê¹€ë™ìš±
+ * ìŒìš© êµìœ¡ì„¼í„° JDBC í”„ë¡œì íŠ¸
  */
 public class ProjectMain {
 	
@@ -17,30 +17,30 @@ public class ProjectMain {
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) {
-			System.out.println("±³À°¼¾ÅÍ ÇÁ·Î±×·¥");
-			System.out.println("1. ÇĞ»ı ·Î±×ÀÎ");
-			System.out.println("2. ±³»ç ·Î±×ÀÎ");
-			System.out.println("3. °ü¸®ÀÚ ·Î±×ÀÎ");
-			System.out.println("4. È¸¿ø°¡ÀÔ");
-			System.out.println("5. ÇÁ·Î±×·¥ Á¾·á");
-			System.out.print("ÀÔ·Â : ");
+			System.out.println("êµìœ¡ì„¼í„° í”„ë¡œê·¸ë¨");
+			System.out.println("1. í•™ìƒ ë¡œê·¸ì¸");
+			System.out.println("2. êµì‚¬ ë¡œê·¸ì¸");
+			System.out.println("3. ê´€ë¦¬ì ë¡œê·¸ì¸");
+			System.out.println("4. íšŒì›ê°€ì…");
+			System.out.println("5. í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
+			System.out.print("ì…ë ¥ : ");
 			String input = sc.nextLine();
 			
 			if (input.equals("1")) {
-				// ÇĞ»ı ·Î±×ÀÎ
+				// í•™ìƒ ë¡œê·¸ì¸
 			} else if (input.equals("2")) {
-				// ±³»ç ·Î±×ÀÎ
+				// êµì‚¬ ë¡œê·¸ì¸
 			} else if (input.equals("3")) {
-				// °ü¸®ÀÚ ·Î±×ÀÎ
+				// ê´€ë¦¬ì ë¡œê·¸ì¸
 			} else if (input.equals("4")) {
 				StudentSignIn signIn = new StudentSignIn();
 				signIn.signInInput();
 			} else if (input.equals("5")) {
-				System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.");
+				System.out.println("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				break;
 			} else {
-				System.out.println("¿Ã¹Ù¸¥ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
-				System.out.println("°è¼Ó ÇÏ½Ã·Á¸é ¿£ÅÍ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				System.out.println("ì˜¬ë°”ë¥¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+				System.out.println("ê³„ì† í•˜ì‹œë ¤ë©´ ì—”í„°ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				sc.nextLine();
 			}
 			

@@ -10,7 +10,7 @@ import jdbc.DBUtil;
 
 /**
  * 
- * @author ±èµ¿¿í ÇĞ»ı È¸¿ø°¡ÀÔÀ» À§ÇÑ Å¬·¡½º
+ * @author ê¹€ë™ìš± í•™ìƒ íšŒì›ê°€ì…ì„ ìœ„í•œ í´ë˜ìŠ¤
  */
 public class StudentSignIn {
 
@@ -18,16 +18,16 @@ public class StudentSignIn {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("======================");
-		System.out.println("È¸¿ø°¡ÀÔ");
-		System.out.print("ÀÌ¸§ : ");
+		System.out.println("íšŒì›ê°€ì…");
+		System.out.print("ì´ë¦„ : ");
 		String name = sc.nextLine();
-		System.out.print("¾ÆÀÌµğ(5~14±ÛÀÚ ÀÌ³»): ");
+		System.out.print("ì•„ì´ë””(5~14ê¸€ì ì´ë‚´): ");
 		String id = sc.nextLine();
-		System.out.print("ÁÖ¹Îµî·Ï¹øÈ£(ex.950101-1111111) : ");
+		System.out.print("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸(ex.950101-1111111) : ");
 		String ssn = sc.nextLine();
-		System.out.print("ÀüÈ­¹øÈ£(ex.010-1234-5678) : ");
+		System.out.print("ì „í™”ë²ˆí˜¸(ex.010-1234-5678) : ");
 		String tel = sc.nextLine();
-		System.out.print("°èÁÂ¹øÈ£ : ");
+		System.out.print("ê³„ì¢Œë²ˆí˜¸ : ");
 		String account = sc.nextLine();
 		System.out.println();
 		StudentBasic student = new StudentBasic(name, id, ssn, tel, account);
@@ -35,30 +35,30 @@ public class StudentSignIn {
 		boolean nameFail, idFail, ssnFail, telFail, idOverlap, ssnOverlap = true;
 		
 		if (nameFail = !nameCheck(student.getName())) {
-			System.out.println("ÀÌ¸§Àº 2~6±ÛÀÚÀÇ ÇÑ±Û·Î ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			System.out.println("ì´ë¦„ì€ 2~6ê¸€ìì˜ í•œê¸€ë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		}
 
 		if (idFail = !idCheck(student.getId())) {
-			System.out.println("¾ÆÀÌµğ´Â 5~15±ÛÀÚÀÇ ¿µ¾î, ¼ıÀÚ·Î ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			System.out.println("ì•„ì´ë””ëŠ” 5~15ê¸€ìì˜ ì˜ì–´, ìˆ«ìë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		}
 
 		if (ssnFail = !ssnCheck(student.getSsn())) {
-			System.out.println("À¯È¿ÇÏÁö ¾ÊÀº ÁÖ¹Î¹øÈ£ÀÔ´Ï´Ù.");
+			System.out.println("ìœ íš¨í•˜ì§€ ì•Šì€ ì£¼ë¯¼ë²ˆí˜¸ì…ë‹ˆë‹¤.");
 		}
 
 		if (telFail = !telCheck(student.getTel())) {
-			System.out.println("À¯È¿ÇÏÁö ¾ÊÀº ÀüÈ­¹øÈ£ÀÔ´Ï´Ù.");
+			System.out.println("ìœ íš¨í•˜ì§€ ì•Šì€ ì „í™”ë²ˆí˜¸ì…ë‹ˆë‹¤.");
 		}
 		
 		if(checkIdOverlap(student.getId()) != 0) {
-			System.out.println("ÀÌ¹Ì »ç¿ëÁßÀÎ ¾ÆÀÌµğ ÀÔ´Ï´Ù.");
+			System.out.println("ì´ë¯¸ ì‚¬ìš©ì¤‘ì¸ ì•„ì´ë”” ì…ë‹ˆë‹¤.");
 			idOverlap = true;
 		} else {
 			idOverlap = false;
 		}
 		
 		if(checkSsnOverlap(student.getSsn()) != 0) {
-			System.out.println("ÀÌ¹Ì µî·ÏµÈ ÁÖ¹Î¹øÈ£ÀÔ´Ï´Ù.");
+			System.out.println("ì´ë¯¸ ë“±ë¡ëœ ì£¼ë¯¼ë²ˆí˜¸ì…ë‹ˆë‹¤.");
 			ssnOverlap = true;
 		} else {
 			ssnOverlap = false;
@@ -67,7 +67,7 @@ public class StudentSignIn {
 		
 
 		if (nameFail == true || idFail == true || ssnFail == true || telFail == true || idOverlap == true || idOverlap == true || ssnOverlap == true) {
-			System.out.println("µÚ·Î °¡½Ã·Á¸é 0¹øÀ», ´Ù½Ã Á¤º¸¸¦ ÀÔ·ÂÇÏ½Ã·Á¸é ¾Æ¹« Å°³ª ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			System.out.println("ë’¤ë¡œ ê°€ì‹œë ¤ë©´ 0ë²ˆì„, ë‹¤ì‹œ ì •ë³´ë¥¼ ì…ë ¥í•˜ì‹œë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			String input = sc.nextLine();
 			if (!input.equals("0")) {
 				signInInput();
@@ -84,31 +84,31 @@ public class StudentSignIn {
 
 	}
 
-	// ÀüÈ­¹øÈ£ À¯È¿¼º°Ë»ç
+	// ì „í™”ë²ˆí˜¸ ìœ íš¨ì„±ê²€ì‚¬
 	private boolean telCheck(String tel) {
 		String pattern = "^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$";
 		return tel.matches(pattern);
 	}
 
-	// ÁÖ¹Î¹øÈ£ À¯È¿¼º°Ë»ç
+	// ì£¼ë¯¼ë²ˆí˜¸ ìœ íš¨ì„±ê²€ì‚¬
 	private boolean ssnCheck(String ssn) {
 		String pattern = "\\d{6}\\-[1-4]\\d{6}";
 		return ssn.matches(pattern);
 	}
 
-	// id ±æÀÌ ¹× ¿µ¹® Ã¼Å© ¸Ş¼Òµå
+	// id ê¸¸ì´ ë° ì˜ë¬¸ ì²´í¬ ë©”ì†Œë“œ
 	private boolean idCheck(String id) {
 		String pattern = "^[a-z0-9]{5,15}$";
 		return id.toLowerCase().matches(pattern);
 	}
 
-	// ÀÌ¸§ ±æÀÌ ¹× ÇÑ±Û Ã¼Å© ¸Ş¼Òµå
+	// ì´ë¦„ ê¸¸ì´ ë° í•œê¸€ ì²´í¬ ë©”ì†Œë“œ
 	private boolean nameCheck(String name) {
-		String pattern = "^[°¡-ÆR]{2,6}$";
+		String pattern = "^[ê°€-í£]{2,6}$";
 		return name.matches(pattern);
 	}
 	
-	// id Áßº¹È®ÀÎ
+	// id ì¤‘ë³µí™•ì¸
 	private int checkIdOverlap(String id) {
 		Connection conn = null;
 		PreparedStatement stat = null;
@@ -117,7 +117,7 @@ public class StudentSignIn {
 
 		try {
 			conn = util.open();
-			// ¾ÆÀÌµğ Áßº¹È®ÀÎ
+			// ì•„ì´ë”” ì¤‘ë³µí™•ì¸
 			String sql = "SELECT COUNT(*) AS CNT FROM TBL_STUDENT WHERE ID = ?";
 
 			stat = conn.prepareStatement(sql);
@@ -135,7 +135,7 @@ public class StudentSignIn {
 
 	}
 	
-	// ÁÖ¹Î¹øÈ£ Áßº¹È®ÀÎ
+	// ì£¼ë¯¼ë²ˆí˜¸ ì¤‘ë³µí™•ì¸
 	private int checkSsnOverlap(String ssn) {
 		Connection conn = null;
 		PreparedStatement stat = null;
@@ -144,7 +144,7 @@ public class StudentSignIn {
 
 		try {
 			conn = util.open();
-			// ¾ÆÀÌµğ Áßº¹È®ÀÎ
+			// ì•„ì´ë”” ì¤‘ë³µí™•ì¸
 			String sql = "SELECT COUNT(*) AS CNT FROM TBL_STUDENT WHERE SSN = ?";
 
 			stat = conn.prepareStatement(sql);

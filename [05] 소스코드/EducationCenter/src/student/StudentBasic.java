@@ -2,8 +2,8 @@ package student;
 
 /**
  * 
- * @author ±èµ¿¿í ÇĞ»ı DTO
- * ÇĞ»ı Á¤º¸ DTO
+ * @author ê¹€ë™ìš± í•™ìƒ DTO
+ * í•™ìƒ ì •ë³´ DTO
  */
 public class StudentBasic {
 

@@ -5,19 +5,20 @@ import java.sql.DriverManager;
 
 /**
  * 
- * @author ±èµ¿¿í
- * ¿À¶óÅ¬ ¿¬°á Å¬·¡½ºÀÔ´Ï´Ù.
+ * @author ê¹€ë™ìš±
+ * ì˜¤ë¼í´ ì—°ê²° í´ë˜ìŠ¤ì…ë‹ˆë‹¤.
  */
 public class DBUtil {
 	
 	private Connection conn = null;
 	
 	/**
-	 * oracle ¼­¹ö ¿¬°á
-	 * @return ¿¬°á °´Ã¼¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
+	 * oracle ì„œë²„ ì—°ê²°
+	 * @return ì—°ê²° ê°ì²´ë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
 	 */
 	public Connection open() {
-		String url = "jdbc:oracle:thin:@211.63.89.53:1521:xe";
+//		String url = "jdbc:oracle:thin:@211.63.89.53:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:xe";
 		String id = "project";
 		String pw = "java1234";
 		
@@ -34,7 +35,7 @@ public class DBUtil {
 	}
 	
 	/**
-	 * DB¿¬°á Á¾·á
+	 * DBì—°ê²° ì¢…ë£Œ
 	 */
 	public void close() {
 		try {

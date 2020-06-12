@@ -2,8 +2,8 @@ package teacher;
 
 /**
  * 
- * @author ±èµ¿¿í
- * ±³»ç Á¤º¸ DTO
+ * @author ê¹€ë™ìš±
+ * êµì‚¬ ì •ë³´ DTO
  */
 public class TeacherBasic {
 
