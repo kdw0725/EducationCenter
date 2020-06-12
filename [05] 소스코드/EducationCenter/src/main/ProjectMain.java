@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import student.StudentBasic;
 import student.StudentLogIn;
+import student.StudentMain;
 import student.StudentSignIn;
 
 /**
@@ -31,7 +32,16 @@ public class ProjectMain {
 				// 학생 로그인
 				StudentLogIn login = new StudentLogIn();
 				StudentBasic logInStudent = login.logIn();
-				System.out.println(logInStudent.toString());
+				
+				// 로그인 오류시 반복문으로 돌아가기
+				if(logInStudent == null) {
+					continue;
+				}
+				
+				StudentMain studentMain = new StudentMain();
+				studentMain.showInfo(logInStudent);
+				studentMain.showMenu(logInStudent);
+				
 			} else if (input.equals("2")) {
 				// 교사 로그인
 			} else if (input.equals("3")) {

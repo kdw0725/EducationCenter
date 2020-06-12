@@ -16,6 +16,14 @@ public class StudentBasic {
 	private String regdate;
 	private boolean delflag;
 	
+	/**
+	 * StudentBasic 객체 생성자
+	 * @param 학생 이름
+	 * @param 아이디
+	 * @param 주민번호
+	 * @param 연락처
+	 * @param 계좌번호
+	 */
 	public StudentBasic(String name, String id, String ssn, String tel, String account) {
 		this.name = name;
 		this.id = id;
@@ -25,7 +33,17 @@ public class StudentBasic {
 	}
 	
 	
-
+	/**
+	 * StudentBasic 객체 생성자(OverLoading)
+	 * @param 학생번호
+	 * @param 학생 이름
+	 * @param 아이디
+	 * @param 주민번호
+	 * @param 연락처
+	 * @param 계좌번호
+	 * @param 회원가입일
+	 * @param 계정사용여부
+	 */
 	public StudentBasic(int seq, String name, String id, String ssn, String tel, String account, String regdate, String delflag) {
 		this.seq = seq;
 		this.name = name;
