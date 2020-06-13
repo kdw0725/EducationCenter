@@ -109,7 +109,7 @@ public class StudentCheckCovid {
 						        	Date days = dateFormat.parse(rs.getString("days"));
 						        	
 						        	//입력받은 기간과 체온조회의 날짜를 비교
-						        	if (days.getTime() > start_date.getTime() && days.getTime() < end_date.getTime()) {
+						        	if (days.getTime() >= start_date.getTime() && days.getTime() <= end_date.getTime()) {
 						        		printTemp(rs);
 						        		
 						        		

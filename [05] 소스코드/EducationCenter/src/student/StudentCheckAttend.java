@@ -249,7 +249,7 @@ public class StudentCheckAttend {
 						        	Date days = dateFormat.parse(rs.getString("days"));
 						        	
 						        	//입력받은 기간과 출결기록의 날짜를 비교
-						        	if (days.getTime() > start_date.getTime() && days.getTime() < end_date.getTime()) {
+						        	if (days.getTime() >= start_date.getTime() && days.getTime() <= end_date.getTime()) {
 						        		
 						        		printAttend(rs);
 						        		

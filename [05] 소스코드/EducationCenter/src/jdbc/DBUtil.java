@@ -18,7 +18,8 @@ public class DBUtil {
 	 */
 	public Connection open() {
 //		String url = "jdbc:oracle:thin:@211.63.89.53:1521:xe";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+//		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:kdw";
 		String id = "project";
 		String pw = "java1234";
 		

@@ -55,12 +55,12 @@ public class StudentCheckScore {
 									, rs.getString("enddate")
 									, rs.getString("book")
 									, rs.getString("teacher")
-									, rs.getString("atpercent")
-									, rs.getString("wrpercent")
-									, rs.getString("pepercent")
-									, rs.getString("atscore")
-									, rs.getString("wrscore")
-									, rs.getString("pescore"));				
+									, rs.getString("atpercent") == null ? " -" : rs.getString("atpercent")
+									, rs.getString("wrpercent") == null ? " -" : rs.getString("wrpercent")
+									, rs.getString("pepercent") == null ? " -" : rs.getString("pepercent")
+									, rs.getString("atscore") == null ? " -" : rs.getString("atscore")
+									, rs.getString("wrscore") == null ? " -" : rs.getString("wrscore")
+									, rs.getString("pescore") == null ? " -" : rs.getString("pescore"));				
 				
 			}
 			

@@ -34,8 +34,8 @@ public class MyCalendar { // 달력
 	//달력 출력
 	public void printCalendar(int year, int month){
 		
-		System.out.printf("<<< %4d년 %3d월 >>>>\n", year, month);
-		System.out.println(" 일 월 화 수 목 금 토");
+		System.out.printf("<<< %4d년 %3d월 >>>>\n", year, month + 1);
+		System.out.println(" 일   월   화   수   목   금   토");
 		System.out.println("---------------------");
 		
 		// 1일이 무슨요일인지 받아오기
@@ -73,7 +73,7 @@ public class MyCalendar { // 달력
 	private int getWeekDay(int year, int month) {
 		Calendar date = Calendar.getInstance();
 		date.set(Calendar.YEAR, year);	// 년도 셋팅
-		date.set(Calendar.MONTH, month-1);	// 월 셋팅
+		date.set(Calendar.MONTH, month);	// 월 셋팅
 		date.set(Calendar.DATE, 1);	// 1일로 지정
 		int weekday = date.get(Calendar.DAY_OF_WEEK) -1;	// 리턴값이 sun:1 ~ sat:7 로리턴 되므로 -1을 해줌
 		return weekday;

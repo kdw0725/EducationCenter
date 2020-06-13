@@ -21,10 +21,11 @@ public class ProjectMain {
 		while(true) {
 			System.out.println("교육센터 프로그램");
 			System.out.println("1. 학생 로그인");
-			System.out.println("2. 교사 로그인");
-			System.out.println("3. 관리자 로그인");
-			System.out.println("4. 회원가입");
-			System.out.println("5. 프로그램 종료");
+			System.out.println("2. 수강신청");
+			System.out.println("3. 교사 로그인");
+			System.out.println("4. 관리자 로그인");
+			System.out.println("5. 회원가입");
+			System.out.println("0. 프로그램 종료");
 			System.out.print("입력 : ");
 			String input = sc.nextLine();
 			
@@ -42,14 +43,18 @@ public class ProjectMain {
 				studentMain.showInfo(logInStudent);
 				studentMain.showMenu(logInStudent);
 				
-			} else if (input.equals("2")) {
+			} else if(input.equals("2")) {
+				// 수강신청
+				
+			}
+			else if (input.equals("3")) {
 				// 교사 로그인
-			} else if (input.equals("3")) {
-				// 관리자 로그인
 			} else if (input.equals("4")) {
+				// 관리자 로그인
+			} else if (input.equals("5")) {
 				StudentSignIn signIn = new StudentSignIn();
 				signIn.signInInput();
-			} else if (input.equals("5")) {
+			} else if (input.equals("0")) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
 			} else {
