@@ -17,8 +17,8 @@ public class DBUtil {
 	 * @return 연결 객체를 반환합니다.
 	 */
 	public Connection open() {
-		String url = "jdbc:oracle:thin:@211.63.89.53:1521:xe";
-//		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+//		String url = "jdbc:oracle:thin:@211.63.89.53:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 //		String url = "jdbc:oracle:thin:@localhost:1521:kdw";
 		String id = "project";
 		String pw = "java1234";

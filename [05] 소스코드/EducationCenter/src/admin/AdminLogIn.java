@@ -41,8 +41,8 @@ public class AdminLogIn {
 			int num = stat.getInt(3);
 			stat.close();
 			conn.close();
-			
 			return num;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

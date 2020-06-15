@@ -1,5 +1,7 @@
 package teacher;
 
+import java.util.Arrays;
+
 /**
  * 
  * @author 김동욱
@@ -7,12 +9,21 @@ package teacher;
  */
 public class TeacherBasic {
 
-	private int 	seq;
-	private String  name;
-	private String  id;
-	private String  ssn;
-	private String  tel;
-	private boolean delflag;
+	private int      seq;
+	private String   name;
+	private String   id;
+	private String   ssn;
+	private String   tel;
+	private String[] subject;
+	
+
+	public TeacherBasic(int seq, String name, String ssn, String tel, String[] subject) {
+		this.seq = seq;
+		this.name = name;
+		this.ssn = ssn;
+		this.tel = tel;
+		this.subject = subject;
+	}
 
 	public int getSeq() {
 		return seq;
@@ -53,10 +64,28 @@ public class TeacherBasic {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	
+	
+
+	public String getSubject() {
+		String result = "";
+		for (int i = 0; i < subject.length -1; i++) {
+			result += subject[i] + ", ";
+		}
+		result += subject[subject.length-1];
+		return result;
+	}
+
+	public void setSubject(String[] subject) {
+		this.subject = subject;
+	}
 
 	@Override
 	public String toString() {
-		return "TeacherBasic [seq=" + seq + ", name=" + name + ", id=" + id + ", ssn=" + ssn + ", tel=" + tel + "]";
+		return "TeacherBasic [seq=" + seq + ", name=" + name + ", id=" + id + ", ssn=" + ssn + ", tel=" + tel
+				+ ", subject=" + Arrays.toString(subject) + "]";
 	}
+	
+
 
 }

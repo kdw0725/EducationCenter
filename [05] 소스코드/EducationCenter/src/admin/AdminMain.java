@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class AdminMain {
 	
-	public void showMain(AdminBasic logInAdmin) {
+	public void showMain() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -20,7 +20,8 @@ public class AdminMain {
 				break;
 			} else if(input.equals("1")) {
 				// 교사 관리
-				
+				AdminManageTeacher adminManageTeacher = new AdminManageTeacher();
+				adminManageTeacher.showMain();
 			} else if(input.equals("2")) {
 				// 학생 관리
 			} else if(input.equals("3")) {

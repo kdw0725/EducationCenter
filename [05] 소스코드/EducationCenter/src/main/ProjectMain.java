@@ -84,7 +84,9 @@ public class ProjectMain {
 				if(logInResult == 0) {
 					System.out.println("아이디와 비빌번호를 확인하여주세요.");
 				} else if(logInResult == 1) {
-					
+					System.out.println("관리자로 로그인이 되었습니다.");
+					AdminMain adminMain = new AdminMain();
+					adminMain.showMain();
 				}
 				
 			} else if (input.equals("5")) {

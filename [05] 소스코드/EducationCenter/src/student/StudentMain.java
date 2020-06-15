@@ -10,7 +10,7 @@ import oracle.jdbc.OracleTypes;
 
 /**
  * 
- * @author 장정우, 
+ * @author 장정우
  * 학생 메인화면 클래스
  */
 public class StudentMain {
