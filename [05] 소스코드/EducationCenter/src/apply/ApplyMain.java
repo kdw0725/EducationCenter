@@ -116,6 +116,38 @@ public class ApplyMain {
 		
 	}
 
+
+	public int checkApply(StudentBasic studentBasic) {
+		
+		Connection conn = null;
+		PreparedStatement stat = null;
+		ResultSet rs = null;
+		DBUtil util = new DBUtil();
+		
+		
+		try {
+			conn = util.open();
+			String sql = "SELECT COUNT(*) AS CNT FROM TBL_APPLY AP INNER JOIN TBL_OPEN_COURSE OCRS ON OCRS.SEQ = AP.OCRSSEQ  WHERE AP.STUSEQ = ? AND SYSDATE <= ENDDATE";
+			
+			stat = conn.prepareStatement(sql);
+			stat.setInt(1, studentBasic.getSeq());
+			
+			rs = stat.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt("CNT");
+			}
+			
+			conn.close();
+		} catch (Exception e) {
+			System.out.println("ApplyMain.checkApply()");
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+
+
 	// 수강신청 메소드
 	private void studentApplyDo(OpenExpectedCourse openExpectedCourse, StudentBasic studentBasic) {
 		

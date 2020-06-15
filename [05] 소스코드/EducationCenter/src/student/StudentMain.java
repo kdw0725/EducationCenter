@@ -19,13 +19,12 @@ public class StudentMain {
 	 * 학생 정보를 가져와 보여주는 메소드
 	 * @param 로그인한 학생 계정
 	 */
-	public void showInfo (StudentBasic logInStudent) {
+	public void showInfo (StudentBasic logInStudent) throws Exception{
 		Connection conn = null;
 		CallableStatement stat = null;
 		ResultSet rs = null;
 		DBUtil util = new DBUtil();
 		Scanner scan = new Scanner(System.in);
-		try {
 			
 			//학생 메인화면 호출
 			String sql = "{ call PROC_STUDENT_MAIN(?, ?) }";
@@ -54,14 +53,6 @@ public class StudentMain {
 			
 			
 			
-		}catch (NullPointerException e) {
-			System.out.println("본 서비스는 수강신청 후 이용이 가능합니다. 수강신청 후 이용해주세요!");
-			System.out.println("뒤로 돌아가시려면 아무키나 눌러주시기 바랍니다.");
-			scan.nextLine();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	/**

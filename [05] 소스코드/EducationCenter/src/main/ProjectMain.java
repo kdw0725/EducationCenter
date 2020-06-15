@@ -41,18 +41,34 @@ public class ProjectMain {
 				}
 				
 				StudentMain studentMain = new StudentMain();
-				studentMain.showInfo(logInStudent);
-				studentMain.showMenu(logInStudent);
+				try {
+					studentMain.showInfo(logInStudent);
+					studentMain.showMenu(logInStudent);
+				} catch (NullPointerException e) {
+					System.out.println("본 서비스는 개강 이후 이용이 가능합니다. 개강일이 지난 이후 이용해주세요!");
+					System.out.println("뒤로 돌아가시려면 아무키나 눌러주시기 바랍니다.");
+					sc.nextLine();
+				} 
+				
+				catch (Exception e) {
+					System.out.println("ProjectMain.main()");
+					e.printStackTrace();
+				}
 				
 			} else if(input.equals("2")) {
 				// 수강신청
 				StudentLogIn login = new StudentLogIn();
 				StudentBasic logInStudent = login.logIn();
-				System.out.println(logInStudent.toString());
 				if(logInStudent != null) {
-					System.out.println("널 반환");
 					ApplyMain apply = new ApplyMain();
-					apply.showMain(logInStudent);
+					if(apply.checkApply(logInStudent) == 0) {
+						apply.showMain(logInStudent);
+					} else {
+						System.out.println("이미 수강중이거나 수강 예정인 과목이 존재합니다.");
+					}
+					System.out.println("계속하시려면 엔터를 입력해주세요.");
+					sc.nextLine();
+					
 				}
 				
 			}
