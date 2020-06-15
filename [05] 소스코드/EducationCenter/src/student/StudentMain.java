@@ -80,7 +80,8 @@ public class StudentMain {
 				StudentCheckScore studentCheckScore = new StudentCheckScore(); 
 				studentCheckScore.showScore(logInStudent);
 			} else if (num.equals("2")) { //교사 평가 관리  
-				
+				StudentScoreTeacher studentScoreTeacher = new StudentScoreTeacher();
+				studentScoreTeacher.student_scoreteacher(logInStudent.getSeq());
 				
 			} else if (num.equals("3")) { //출결 관리
 				StudentCheckAttend studentCheckAttend = new StudentCheckAttend();
