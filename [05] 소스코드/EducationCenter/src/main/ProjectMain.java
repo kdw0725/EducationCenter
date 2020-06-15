@@ -2,6 +2,7 @@ package main;
 
 import java.util.Scanner;
 
+import apply.ApplyMain;
 import student.StudentBasic;
 import student.StudentLogIn;
 import student.StudentMain;
@@ -45,6 +46,14 @@ public class ProjectMain {
 				
 			} else if(input.equals("2")) {
 				// 수강신청
+				StudentLogIn login = new StudentLogIn();
+				StudentBasic logInStudent = login.logIn();
+				System.out.println(logInStudent.toString());
+				if(logInStudent != null) {
+					System.out.println("널 반환");
+					ApplyMain apply = new ApplyMain();
+					apply.showMain(logInStudent);
+				}
 				
 			}
 			else if (input.equals("3")) {
