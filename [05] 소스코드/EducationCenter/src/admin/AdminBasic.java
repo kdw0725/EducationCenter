@@ -12,6 +12,15 @@ public class AdminBasic {
 	private String  pw;
 	private boolean delflag;
 
+	
+	
+	public AdminBasic(int seq, String id, String pw, boolean delflag) {
+		this.seq = seq;
+		this.id = id;
+		this.pw = pw;
+		this.delflag = delflag;
+	}
+
 	public int getSeq() {
 		return seq;
 	}

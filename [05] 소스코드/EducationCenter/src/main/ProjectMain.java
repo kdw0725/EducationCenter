@@ -2,6 +2,9 @@ package main;
 
 import java.util.Scanner;
 
+import admin.AdminBasic;
+import admin.AdminLogIn;
+import admin.AdminMain;
 import apply.ApplyMain;
 import student.StudentBasic;
 import student.StudentLogIn;
@@ -76,6 +79,14 @@ public class ProjectMain {
 				// 교사 로그인
 			} else if (input.equals("4")) {
 				// 관리자 로그인
+				AdminLogIn logIn = new AdminLogIn();
+				int logInResult = logIn.logIn();
+				if(logInResult == 0) {
+					
+				} else if(logInResult == 1) {
+					
+				}
+				
 			} else if (input.equals("5")) {
 				StudentSignIn signIn = new StudentSignIn();
 				signIn.signInInput();
