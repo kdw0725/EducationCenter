@@ -82,7 +82,7 @@ public class ProjectMain {
 				AdminLogIn logIn = new AdminLogIn();
 				int logInResult = logIn.logIn();
 				if(logInResult == 0) {
-					
+					System.out.println("아이디와 비빌번호를 확인하여주세요.");
 				} else if(logInResult == 1) {
 					
 				}
