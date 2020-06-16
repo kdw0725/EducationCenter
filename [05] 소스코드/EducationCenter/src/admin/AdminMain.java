@@ -2,7 +2,6 @@ package admin;
 
 import java.util.Scanner;
 
-import attend.AttendMain;
 import covid.CovidMain;
 
 public class AdminMain {
@@ -12,6 +11,7 @@ public class AdminMain {
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) {
+			System.out.println("====================");
 			System.out.println("1. 교사관리");
 			System.out.println("2. 학생 관리");
 			System.out.println("3. 기초 정보 관리");
@@ -19,6 +19,7 @@ public class AdminMain {
 			System.out.println("5. 출결 관리");
 			System.out.println("6. 코로나 특별관리");
 			System.out.println("0. 뒤로 가기");
+			System.out.println("====================");
 			System.out.print("번호 입력 : ");
 			String input = sc.nextLine();
 			if(input.equals("0")) {

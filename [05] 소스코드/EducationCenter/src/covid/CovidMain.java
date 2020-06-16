@@ -11,10 +11,13 @@ public class CovidMain {
 	public void showMain() {
 		
 		while (true) {
+			System.out.println("====================");
 			System.out.println("1. 교육생");
 			System.out.println("2. 교사");
 			System.out.println("3. 관리자");
 			System.out.println("0. 뒤로가기");
+			System.out.println("====================");
+			System.out.print("입력 : ");
 			String input = scan.nextLine();
 			
 			if(input.equals("0")) {

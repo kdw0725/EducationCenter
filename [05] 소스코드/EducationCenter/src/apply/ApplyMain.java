@@ -178,7 +178,7 @@ public class ApplyMain {
 
 	// 과정의 상세 정보를 보여주는 메소드
 	private void courseDetail(OpenExpectedCourse openExpectedCourse) {
-		
+		System.out.println("====================================================================================================");
 		System.out.print("과정명           : ");
 		System.out.println(openExpectedCourse.getName());
 		System.out.print("과정 시작일     : ");
@@ -213,6 +213,7 @@ public class ApplyMain {
 			e.printStackTrace();
 		}
 		System.out.println();
+		System.out.println("====================================================================================================");
 		
 		
 		

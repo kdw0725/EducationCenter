@@ -11,9 +11,11 @@ public class AdminManageTeacher {
 	public void showMain() {
 		Scanner sc = new Scanner(System.in);
 		while(true) {
+			System.out.println("===============");
 			System.out.println("1. 교사 등록");
 			System.out.println("2. 교사 정보 조회");
 			System.out.println("0. 뒤로가기");
+			System.out.println("===============");
 			System.out.print("입력 : ");
 			String input = sc.nextLine();
 			
@@ -43,8 +45,7 @@ public class AdminManageTeacher {
 		Scanner scan = new Scanner(System.in);
 
 		try {
-
-			System.out.println("새 교사 정보 등록");
+			System.out.println("==============================");
 			System.out.print("교사 이름: ");
 			String name = scan.nextLine();
 
@@ -57,7 +58,7 @@ public class AdminManageTeacher {
 			System.out.print("교사 전화번호: ");
 			String tel = scan.nextLine();
 			
-			System.out.println("==================================");
+			System.out.println("==============================");
 
 			System.out.println();
 

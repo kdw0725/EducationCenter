@@ -40,13 +40,15 @@ public class TeacherCovidControl {
 				rs = stat1.executeQuery(sql);
 				System.out.println("==========================교사 체온==========================");
 				System.out.println("[교사명]\t[교사번호]\t[날짜]\t\t[오전]\t[오후]");
+				List<String> list = new ArrayList<String>();
 				while (rs.next()) {
-
-					System.out.printf("%s\t\t    %s\t\t%s\t%s\t%s\n", rs.getString("name"), rs.getString("teaseq"),
-							rs.getString("days").substring(0, 10), rs.getString("amtemp"), rs.getString("pmtemp"));
+					list.add(String.format("%s\t\t    %s\t\t%s\t%s\t%s", 
+							rs.getString("name"), rs.getString("teaseq"),
+							rs.getString("days").substring(0, 10), rs.getString("amtemp"), rs.getString("pmtemp")));
 
 				}
-
+				Pagingfile file = new Pagingfile();
+				file.page(list);
 				rs.close();
 				stat1.close();
 

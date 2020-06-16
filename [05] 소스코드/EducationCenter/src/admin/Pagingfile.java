@@ -63,22 +63,22 @@ public class Pagingfile {
 	      //페이지가 한개만 있는 경우
 	      if(depart.size() == 1) {
 	         //첫페이지 보여주기
-	         System.out.println("---------------------------------------------");
+				System.out.println("==================================================");
 	         for(int i = 0; i < depart.get(0).length; i++) {
 	            if( depart.get(0)[i] != null) {
 	            System.out.printf("%s\n",depart.get(0)[i]);
 	            }
 	         }
-	         System.out.println("---------------------------------------------");
+				System.out.println("==================================================");
 	         System.out.println("넘어갈 페이지가 없습니다.");
-	         System.out.println("---------------------------------------------");
+				System.out.println("==================================================");
 	      }
 	      else {
 	      
 	      //페이지가 여러개인 경우
 	      while(true) {
 	         
-	         System.out.print("---------------------------------------------\n");
+				System.out.println("==================================================");
 	         for(int i = 0; i < 10; i++) {
 	            if( depart.get(count)[i] != null) {
 	            System.out.printf("%s\t" , depart.get(count)[i]);
@@ -88,19 +88,18 @@ public class Pagingfile {
 	         }
 	         //페이지 반복
 	         System.out.println();
-	         System.out.println("---------------------------------------------");
+				System.out.println("==================================================");
 	         System.out.printf("%d페이지 입니다.\n", count + 1);
-	         System.out.println("---------------------------------------------");
-	         System.out.println("1. 이전 페이지");
-	         System.out.println("2. 다음 페이지");
-	         System.out.println("0. 취소");
-	         System.out.println("---------------------------------------------");         
+				System.out.println("==================================================");
+	         System.out.println("1. 이전 페이지            2. 다음 페이지");
+	         System.out.println("3. 취소");
+				System.out.println("==================================================");
 	         //번호 고르기
 	         Scanner scan = new Scanner(System.in);
-	         System.out.print("입력▶ ");
+	         System.out.print("입력 :  ");
 	         int answer = scan.nextInt();
 	         scan.skip("\r\n"); //엔터 무시
-	         System.out.println("---------------------------------------------");
+				System.out.println("==================================================");
 	         //이전페이지
 	         if(answer == 1) {
 	            //첫페이지 일 경우
@@ -120,9 +119,11 @@ public class Pagingfile {
 	            } else {
 	               count = count+1;
 	            }
-	         } else{
+	         } else if (answer == 3){
 	            break;
-	         } 
+	         }  else {
+	        	 System.out.println("번호를 잘 못 입력하였습니다.");
+	         }
 	         
 	         
 	         
@@ -173,7 +174,7 @@ public class Pagingfile {
 		// 페이지가 한개만 있는 경우
 		if (depart.size() == 1) {
 			// 첫페이지 보여주기
-			System.out.println("=============================================");
+			System.out.println("==================================================");
 			for (int i = 0; i < depart.get(0).length; i++) {
 				if (depart.get(0)[i] != null) {
 					System.out.printf("%3d. %s\n", i + 1, depart.get(0)[i]);
@@ -186,7 +187,7 @@ public class Pagingfile {
 
 			// 페이지가 여러개인 경우
 			while (true) {
-				System.out.println("=============================================");
+				System.out.println("==================================================");
 				for (int i = 0; i < 10; i++) {
 					System.out.printf("\n%3d. ", num);
 					if (depart.get(count)[i] != null) {
@@ -196,13 +197,12 @@ public class Pagingfile {
 				}
 				// 페이지 반복
 				System.out.println();
-				System.out.println("=============================================");
+				System.out.println("==================================================");
 				System.out.printf("%d페이지 입니다.\n", count + 1);
-				System.out.println("=============================================");
-				System.out.println("1. 이전 페이지");
-				System.out.println("2. 다음 페이지");
-				System.out.println("0. 취소");
-				System.out.println("=============================================");
+				System.out.println("==================================================");
+		         System.out.println("1. 이전 페이지            2. 다음 페이지");
+				System.out.println("3. 취소");
+				System.out.println("==================================================");
 				// 번호 고르기
 				Scanner scan = new Scanner(System.in);
 				System.out.print("입력 : ");

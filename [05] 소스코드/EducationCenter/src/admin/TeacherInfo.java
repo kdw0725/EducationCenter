@@ -72,12 +72,12 @@ public class TeacherInfo {
 //					System.out.println("Fail: Select vw_ShowTotalTeacher ");
 //				}
 			
-				System.out.println("==========================");
+				System.out.println("===========");
 				System.out.println("1. 조회하기");
 				System.out.println("2. 수정하기");
 				System.out.println("3. 삭제하기");
 				System.out.println("0. 뒤로가기");
-				System.out.println("==========================");
+				System.out.println("============");
 				System.out.print("번호 입력 : ");
 				String num = scan.nextLine();
 				System.out.println();
@@ -424,7 +424,7 @@ public class TeacherInfo {
 			rs = stat.executeQuery(sql);
 
 			System.out.println("[No.]\t[이름]\t[강의진행여부]\t[강의실]\t[과정기간]\t\t[과정명]");
-
+			System.out.println("=====================================================================================================");
 			while (rs.next()) {
 				System.out.printf(" %2s\t%s\t  %4s\t%s 강의실\t%s\t%s\r\n", ++count, rs.getString("teachername"),
 						rs.getString("status"), rs.getString("roomnum"), rs.getString("termcourse"),
@@ -432,7 +432,7 @@ public class TeacherInfo {
 				course = rs.getString("namecourse");
 			}
 
-			System.out.println("=============================================================");
+			System.out.println("=====================================================================================================");
 			System.out.println("0. 뒤로가기");
 			System.out.print("과정 번호 선택 : ");
 			String ocNum = scan.nextLine();
@@ -470,15 +470,15 @@ public class TeacherInfo {
 						rsSub = statSub.executeQuery(sqlSub);
 
 						System.out.println();
-						System.out.println("=================================================");
-						System.out.println("[과목명]\t\t[과목기간]\t\t[교재명]");
+						System.out.println("==================================================================================================");
+						System.out.println("[과목명]\t\t\t\t[과목기간]\t\t\t\t[교재명]");
 
 						while (rsSub.next()) {
 							System.out.printf("%-16s\t%s\t%s\r\n", rsSub.getString("namesubject"),
 									rsSub.getString("termsubject"), rsSub.getString("bookname"));
 						}
 
-						System.out.println("=================================================");
+						System.out.println("==================================================================================================");
 
 						rsSub.close();
 						statSub.close();
@@ -506,7 +506,8 @@ public class TeacherInfo {
 	
 
 	private void printTeacherList() {
-		System.out.println("[No.]\t[이름]\t[주민번호]\t[전화번호]\t[강의가능과목]");
+		System.out.println("[No.]\t[이름]\t[주민번호]\t\t[전화번호]\t\t[강의가능과목]");
+		System.out.println("=======================================================================================================================================================================================");
 
 		for (int i = 0; i < list.size(); i++) {
 			System.out.printf(" %2s\t%s\t %s\t%s\t%s\r\n"
@@ -516,7 +517,7 @@ public class TeacherInfo {
 					, list.get(i).getTel()
 					, list.get(i).getSubject());
 		}
-		System.out.println("=============================================================");
+		System.out.println("=======================================================================================================================================================================================");
 
 	}
 

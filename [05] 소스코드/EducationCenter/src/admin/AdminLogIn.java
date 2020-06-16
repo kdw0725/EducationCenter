@@ -18,13 +18,13 @@ public class AdminLogIn {
 		Scanner scan = new Scanner(System.in);
 
 		try {
-			
-			System.out.println("관리자 로그인");
+			System.out.println("====================");
 			System.out.print("관리자 ID: ");
 			String id = scan.nextLine();
 
 			System.out.print("관리자 PW: ");
 			String pw = scan.nextLine();
+			System.out.println("====================");
 			
 			String sql = "{ call proc_loginadmin(?,?,?) }";
 			

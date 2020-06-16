@@ -23,14 +23,18 @@ public class ProjectMain {
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) {
+			System.out.println("====================");
 			System.out.println("교육센터 프로그램");
+			System.out.println("====================");
 			System.out.println("1. 학생 로그인");
 			System.out.println("2. 수강신청");
 			System.out.println("3. 교사 로그인");
 			System.out.println("4. 관리자 로그인");
 			System.out.println("5. 회원가입");
 			System.out.println("0. 프로그램 종료");
+			System.out.println("====================");
 			System.out.print("입력 : ");
+			
 			String input = sc.nextLine();
 			
 			if (input.equals("1")) {

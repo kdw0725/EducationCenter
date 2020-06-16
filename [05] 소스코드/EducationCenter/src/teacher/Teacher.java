@@ -45,7 +45,7 @@ public class Teacher {
 				list.add(result);
 			}
 			Pagingfile file = new Pagingfile();
-			file.save(list);
+			file.pageNonum(file.save(list));
 			stat1.close();
 			rs.close();
 			conn.close();

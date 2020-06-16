@@ -17,12 +17,14 @@ public class AdminStudent {
 	
 	public void showMenu(){
 		while(true) {
+			System.out.println("====================");
 			System.out.println("1. 교육생 등록");
 			System.out.println("2. 교육생 조회");
 			System.out.println("3. 취업 관리");
 			System.out.println("4. 국비지원");
 			System.out.println("0. 뒤로가기");
-			System.out.print("입력 : ");
+			System.out.println("====================");
+			System.out.print("번호 입력 : ");
 			String input = scan.nextLine();
 			
 			if(input.equals("0")) {

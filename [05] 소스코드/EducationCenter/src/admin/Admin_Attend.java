@@ -34,12 +34,12 @@ public class Admin_Attend {
 	public void AttendManagementMenu() {
 		//출결관리 메뉴
 		while (true) {
-			System.out.println("==========================");
+			System.out.println("====================");
 			System.out.println("1. 관리자");
 			System.out.println("2. 교사");
 			System.out.println("3. 학생");
 			System.out.println("0. 뒤로가기");
-			System.out.println("==========================");
+			System.out.println("====================");
 			System.out.print("번호 입력 : ");
 			String num = scan.nextLine();
 			System.out.println();

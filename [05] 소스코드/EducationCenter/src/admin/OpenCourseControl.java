@@ -320,7 +320,6 @@ public class OpenCourseControl {
 			System.out.println("========================");
 			System.out.println("1. 학생별 출력");
 			System.out.println("2. 과목별 출력");
-			System.out.println("3. 수정하기");
 			System.out.println("0. 뒤로가기");
 			System.out.println("========================");
 
