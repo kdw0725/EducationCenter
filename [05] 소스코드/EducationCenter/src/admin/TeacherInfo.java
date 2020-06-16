@@ -515,7 +515,7 @@ public class TeacherInfo {
 					, list.get(i).getName()
 					, list.get(i).getSsn()
 					, list.get(i).getTel()
-					, list.get(i).getSubject());
+					, list.get(i).getSubject() == null ? "강의가능 과목을 등록해 주시기 바랍니다." : list.get(i).getSubject());
 		}
 		System.out.println("=======================================================================================================================================================================================");
 
@@ -546,7 +546,7 @@ public class TeacherInfo {
 						rs.getString("NAME"), 
 						rs.getString("ssn"), 
 						rs.getString("TEL"), 
-						rs.getString("SUBJECT").split(", ")
+						rs.getString("SUBJECT") == null? null :rs.getString("SUBJECT").split(", ")
 						);
 				list.add(teacher);
 			}

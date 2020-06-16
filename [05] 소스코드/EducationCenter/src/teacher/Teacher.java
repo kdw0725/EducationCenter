@@ -27,9 +27,10 @@ public class Teacher {
 		try {
 
 			conn = util.open();
-
+			
+			System.out.println("=========================================================================================");
 			System.out.println("출결 조회 근태 상황 ");
-			System.out.println("[학생번호]\t[학생이름]\t[날짜]\t[입실시간]\t[퇴실시간]\t[학생상태]\t[공결]\n");
+			System.out.println("[학생번호]\t[학생이름]\t[날짜]\t\t[입실시간]\t[퇴실시간]\t[학생상태]\t[공결]\n");
 
 			String sql = "select distinct StuNum,StuName,Days,InTime,OutTime,StuCondition,StuStatus from vw_AllAtt order by StuNum";
 
@@ -44,6 +45,7 @@ public class Teacher {
 						rs.getString("StuCondition"), rs.getString("StuStatus"));
 				list.add(result);
 			}
+			System.out.println("========================================================================================");
 			Pagingfile file = new Pagingfile();
 			file.pageNonum(file.save(list));
 			stat1.close();
@@ -71,9 +73,9 @@ public class Teacher {
 		try {
 
 			conn = util.open();
-
+			System.out.println("=================================================================================================================================");
 			System.out.println("강의한 과정 목록입니다.과정번호를 입력하세요. ");
-			System.out.println("[교사번호]\t[교사이름]\t[과정번호]\t[과정명]\t[과정기간]\t[과정시작일]\t[과정종료일]\n");
+			System.out.println("[번호]\t[교사이름]\t[과정번호]\t[과정명]\t\t\t\t\t\t[과정기간]\t[과정기간]\n");
 
 			String sql = "select distinct TeacherNum,TeacherName,CourseNum,CourseName,"
 					+ "CoursePer,CourseDate from vw_TeaCourse where TeacherNum =" + Tnum + "order by CourseNum";
@@ -83,7 +85,7 @@ public class Teacher {
 			rs = stat1.executeQuery(sql);
 
 			while (rs.next()) {
-				System.out.printf("%s.\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n", rs.getString("TeacherNum"),
+				System.out.printf("%s.\t%-10s\t%-10s\t%-35s\t%-10s\t%-10s\n", rs.getString("TeacherNum"),
 						rs.getString("TeacherName"), rs.getString("CourseNum"), rs.getString("CourseName"),
 						rs.getString("CoursePer"), rs.getString("CourseDate"));
 
@@ -91,7 +93,7 @@ public class Teacher {
 
 			stat1.close();
 			rs.close();
-
+			System.out.println("=================================================================================================================================");
 			System.out.print("과정번호 선택:");
 			String courseNum = scan.nextLine();
 
@@ -105,19 +107,26 @@ public class Teacher {
 
 			rs = stat1.executeQuery(sql);
 
+			
+			List<String> list = new ArrayList<String>();
 			while (rs.next()) {
-				System.out.printf("%s.\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\t\t\t%s\t\t%s\t\t%s\n", rs.getString("CourseNum"),
+				list.add(String.format("%s.,%15s,%15s,%5s,%10s,%10s,%10s,%10s,%10s", rs.getString("CourseNum"),
 						rs.getString("StuNum"), rs.getString("StudentName"), rs.getString("day").substring(0, 10),
 						rs.getString("InTime"), rs.getString("OutTime"), rs.getString("Tecnum"),
-						rs.getString("StuCondition"), rs.getString("Status"));
+						rs.getString("StuCondition"), rs.getString("Status")));
 
 			}
-
+			
+			Pagingfile file = new Pagingfile();
+			
+			file.pageNonum(file.save(list));
+			
+			System.out.println("================================================================================================");
 			System.out.println("출결 조회할 학생의 번호를 입력하세요.");
 			System.out.print("학생번호 입력:");
 			String StuNum = scan.nextLine();
 
-			System.out.println("[학생번호]\t[학생이름]\t[날짜]\t[입실시간]\t[퇴실시간]\t[학생상태]\t[상태]\n");
+			System.out.println("[학생번호]\t[학생이름]\t[날짜]\t\t[입실시간]\t[퇴실시간]\t[학생상태]\t[상태]\n");
 
 			sql = "select distinct StuNum,StudentName,day,InTime,"
 					+ "OutTime,StuCondition,Status from vw_CouStudent where TeacherNum =" + Tnum + " and CourseNum = "
@@ -126,14 +135,18 @@ public class Teacher {
 			stat1 = conn.createStatement();
 
 			rs = stat1.executeQuery(sql);
-
+			
+			
+			
 			while (rs.next()) {
-				System.out.printf("%s.\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n", rs.getString("StuNum"),
+				System.out.printf("%s.\t%s\t%s\t%s\t%s\t%s\t%s\n", rs.getString("StuNum"),
 						rs.getString("StudentName"), rs.getString("day").substring(0, 10), rs.getString("InTime"),
 						rs.getString("OutTime"), rs.getString("StuCondition"), rs.getString("Status"));
-
+				
 			}
-
+			
+			
+			System.out.println("================================================================================================");
 			rs.close();
 			conn.close();
 			// 페이징 하기
@@ -158,7 +171,7 @@ public class Teacher {
 		Scanner scan = new Scanner(System.in);
 
 		conn = util.open();
-
+		System.out.println("=================================================================================================================================");
 		System.out.println("강의한 과정 목록입니다.과정번호를 입력하세요. ");
 		System.out.println("[번호]\t[교사이름]\t[과정번호]\t[과정명]\t\t\t\t\t\t[과정기간]\t[과정기간]\n");
 
@@ -180,7 +193,7 @@ public class Teacher {
 
 		stat1.close();
 		rs.close();
-
+		System.out.println("=================================================================================================================================");
 		System.out.print("과정번호 선택:");
 		String courseNum = scan.nextLine();
 
@@ -319,7 +332,7 @@ public class Teacher {
 		try {
 
 			conn = util.open();
-
+			System.out.println("=================================================================================================================================");
 			System.out.println("강의한 과정 목록입니다.과정번호를 입력하세요. ");
 			System.out.println("[번호]\t[교사이름]\t[과정번호]\t[과정명]\t\t\t\t\t\t[과정기간]\t[과정기간]\n");
 
@@ -340,7 +353,7 @@ public class Teacher {
 
 			stat1.close();
 			rs.close();
-
+			System.out.println("=================================================================================================================================");
 			System.out.print("과정번호 선택:");
 			String courseNum = scan.nextLine();
 
@@ -353,7 +366,7 @@ public class Teacher {
 			rs = stat1.executeQuery(sql);
 
 			List<String> list = new ArrayList<String>();
-
+			System.out.println("=================================================================================================================================");
 			System.out.println("[과정번호]\t[학생번호]\t[학생이름]\t[날짜]\t[입실시간]\t[퇴실시간]\t[교사번호]\t[학생상태]\t[근태]\n");
 
 			while (rs.next()) {
@@ -371,7 +384,8 @@ public class Teacher {
 			System.out.println();
 			rs.close();
 			conn.close();
-
+			
+			
 			System.out.println("출력을 완료하였습니다. 계속하시려면 엔터를 입력해주세요.");
 			scan.nextLine();
 
@@ -396,7 +410,7 @@ public class Teacher {
 		try {
 
 			conn = util.open();
-
+			System.out.println("===============================================================================");
 			System.out.println("강의한 과정 목록입니다.과정번호를 입력하세요. ");
 			System.out.println("[번호]\t[교사이름]\t[과정번호]\t[과정명]\t[과정기간]\t[과정시작일]\t[과정종료일]\n");
 
@@ -417,7 +431,7 @@ public class Teacher {
 
 			stat1.close();
 			rs.close();
-
+			System.out.println("===============================================================================");
 			System.out.print("과정번호 선택:");
 			String courseNum = scan.nextLine();
 
@@ -437,7 +451,7 @@ public class Teacher {
 
 			}
 			stat1.close();
-
+			System.out.println("===============================================================================");
 			System.out.print("과목번호 선택:");
 			String Subnum = scan.nextLine();
 
@@ -457,7 +471,7 @@ public class Teacher {
 			}
 
 			stat1.close();
-
+			System.out.println("===============================================================================");
 			System.out.print("학생의 수강신청번호 선택:");
 			String Stunum = scan.nextLine();
 
@@ -530,9 +544,9 @@ public class Teacher {
 		try {
 
 			conn = util.open();
-
+			System.out.println("==========================================");
 			System.out.println("중도탈락한 학생 목록과 중도탈락 일 ");
-			System.out.println("[번호]\t[학생이름]\t[중도탈락일]\n");
+			System.out.println("[번호]\t[학생이름]\t\t[중도탈락일]\n");
 
 			String sql = "select distinct num,StudentName,StudentFail from vw_FailStuDate order by num";
 
@@ -549,7 +563,7 @@ public class Teacher {
 			stat1.close();
 			rs.close();
 			conn.close();
-
+			System.out.println("==========================================");
 			System.out.println("뒤로가기를 원하시면 엔터를 입력해주세요!");
 			scan.nextLine();
 
@@ -588,7 +602,7 @@ public class Teacher {
 
 			while (rs.next()) {
 //				System.out.printf("%s.\t\t%s\t\t%s\t\t%s\n",
-				list.add(String.format("%s.,%10s,%10s,%10s", rs.getString("num"), rs.getString("StudentName"),
+				list.add(String.format("%s.,%5s,%12s,%7s", rs.getString("num"), rs.getString("StudentName"),
 						rs.getString("CourEnd").substring(0, 10), rs.getString("StuCondition")));
 
 			}
@@ -622,7 +636,7 @@ public class Teacher {
 		try {
 
 			conn = util.open();
-
+			System.out.println("========================================================================================");
 			System.out.println("교육생 전체의 성적등록여부입니다.");
 			System.out.println("[학생번호]\t[학생이름]\t[과목명]\t[출결점수]\t[실기점수]\t[필기점수]\t[성적등록여부]\n");
 
@@ -676,7 +690,7 @@ public class Teacher {
 		try {
 
 			conn = util.open();
-
+			System.out.println("====================================================================================================================");
 			System.out.println("과목 목록입니다. 선택하실 과목번호를 입력하세요."); // 1번 누르기
 			System.out.println();
 
@@ -708,7 +722,7 @@ public class Teacher {
 			sql = "{ call proc_SubStuSco(?,?) }";
 
 			stat = conn.prepareCall(sql);
-
+			System.out.println("====================================================================================================================");
 			System.out.print("과목번호 입력:");
 			String Subnum = scan.nextLine();
 
@@ -890,7 +904,7 @@ public class Teacher {
 			conn = util.open();
 
 			Scanner scan = new Scanner(System.in);
-
+			System.out.println("====================================================================================================================");
 			System.out.println("강의한 과정 목록입니다.과정번호를 입력하세요. ");
 			System.out.println("[번호]\t[교사이름]\t[과정번호]\t[과정명]\t\t\t\t\t\t[과정기간]\t[과정기간]\n");
 
@@ -917,7 +931,7 @@ public class Teacher {
 			System.out.print("과정번호 선택:");
 			String courseNum = scan.nextLine();
 			System.out.println();
-
+			System.out.println("====================================================================================================================");
 			System.out.println("과목 목록입니다. 선택하실 과목번호를 입력하세요.");
 			System.out.println("[과목번호]\t[과목기간]\t\t\t[과목명]\n");
 			sql = "select distinct OSubNum,SubPer,SubName from vw_SeeSubjectStu where TeaNum=" + Tnum
@@ -934,11 +948,11 @@ public class Teacher {
 
 			}
 			stat1.close();
-
+			System.out.println("===============================================================================");
 			System.out.println();
 			System.out.print("과목번호 선택:");
 			String Subnum = scan.nextLine();
-
+			System.out.println("===============================================================================");
 			System.out.println("학생 수강신청번호 목록입니다. 선택하실 번호를 입력하세요.");
 			System.out.println("[학생번호]\t[학생이름]\n");
 
@@ -955,7 +969,7 @@ public class Teacher {
 			}
 
 			stat1.close();
-			System.out.println();
+			System.out.println("===============================================================================");
 			System.out.print("학생의 수강신청번호 선택:");
 			String Stunum = scan.nextLine();
 
@@ -1034,7 +1048,7 @@ public class Teacher {
 
 		} catch (Exception e) {
 //		e.printStackTrace();
-			System.out.println("성정이 입력되지 않았습니다. 다시 시도해주세요.");
+			System.out.println("성적이 입력되지 않았습니다. 다시 시도해주세요.");
 		}
 
 	}// teacherScoreIn

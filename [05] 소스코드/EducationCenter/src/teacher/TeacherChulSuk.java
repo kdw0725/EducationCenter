@@ -15,7 +15,7 @@ public class TeacherChulSuk {
 			while (loop) {
 
 				System.out.println("=============================================");
-				System.out.println("======학생관리 페이지에 들어오셨습니다.======");
+				System.out.println("학생관리 페이지에 들어오셨습니다.");
 				System.out.println("1. 중도탈락 확인 여부"); // 상세로 들어가서 중도탈락여부확인, 중도탈락일 확인,
 				System.out.println("2. 내 강의 교육생 출결 확인"); // 상세로 1 모든 교육생 출결확인,출결확인 기간별 조회,특정(과정/인원)출결 조회,근태상황조회
 				System.out.println("0. 뒤로가기");
@@ -46,8 +46,8 @@ public class TeacherChulSuk {
 
 	public void teacher_studentfail(int Tnum) { // 5-1. 중도탈락 학생 관리
 		while (true) {
-			System.out.println("======================================================");
-			System.out.println("======중도탈락 확인여부 페이지에 들어오셨습니다.======");
+			System.out.println("===============================================");
+			System.out.println("중도탈락 확인여부 페이지에 들어오셨습니다.");
 			System.out.println("1. 중도탈락 여부 확인"); // 상세로 들어가서 중도탈락여부확인, 중도탈락일 확인,
 			System.out.println("2. 중도탈락일 확인"); // 상세로 1 모든 교육생 출결확인,출결확인 기간별 조회,특정(과정/인원)출결 조회,근태상황조회
 			System.out.println("0. 뒤로가기");
@@ -82,8 +82,8 @@ public class TeacherChulSuk {
 
 			while (loop) {
 
-				System.out.println("===================================================");
-				System.out.println("======학생 출결 관리 페이지에 들어오셨습니다.======");
+				System.out.println("===============================================");
+				System.out.println("학생 출결 관리 페이지에 들어오셨습니다.");
 				System.out.println("1. 모든 교육생 출결 조회");
 				System.out.println("2. 출결 기간별 조회");
 				System.out.println("3. 특정(과정/교육생) 출결 조회");

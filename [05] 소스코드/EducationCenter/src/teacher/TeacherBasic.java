@@ -68,12 +68,17 @@ public class TeacherBasic {
 	
 
 	public String getSubject() {
-		String result = "";
-		for (int i = 0; i < subject.length -1; i++) {
-			result += subject[i] + ", ";
+		if(subject == null) {
+			return null;
+		} else {
+			String result = "";
+			for (int i = 0; i < subject.length -1; i++) {
+				result += subject[i] + ", ";
+			}
+			result += subject[subject.length-1];
+			return result;
 		}
-		result += subject[subject.length-1];
-		return result;
+		
 	}
 
 	public void setSubject(String[] subject) {
