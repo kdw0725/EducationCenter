@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.Scanner;
 
-import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
 /**

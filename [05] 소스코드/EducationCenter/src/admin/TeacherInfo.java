@@ -93,7 +93,7 @@ public class TeacherInfo {
 					UpdateSelectedTeacher(list.get(Integer.parseInt(teaNum)-1));
 				} else if (num.equals("3")) {
 					//삭제하기
-//					DeleteSelectedTeacher(teaseq);
+					DeleteSelectedTeacher(teaseq);
 				} else {
 					System.out.println("잘못된 번호를 입력하였습니다.");
 					System.out.println();
@@ -105,6 +105,73 @@ public class TeacherInfo {
 			}
 		}
 	}
+
+	private void DeleteSelectedTeacher(String teaNum) {
+		Connection conn = null;
+		Statement stat = null;
+		CallableStatement callStat = null;
+		ResultSet rs = null;
+		DBUtil util = new DBUtil();
+		Scanner scan =  new Scanner(System.in);
+		
+		try {
+
+			conn = util.open();
+			stat = conn.createStatement();
+
+			String sql = String.format("select name, tel, subject from vw_ShowTotalTeacher where seq = %s", teaNum);
+			
+			rs = stat.executeQuery(sql);
+			
+			System.out.println("==================================");
+			String teachername = "";
+			
+			if (rs.next()) {
+				teachername = rs.getString("name");
+				System.out.printf("이름 : %s\r\n", teachername);
+				System.out.printf("전화번호 : %s\r\n", rs.getString("tel"));
+				System.out.printf("강의 가능 과목 : %s\r\n", rs.getString("subject"));
+			}
+
+			
+			System.out.println("==================================");
+
+			System.out.println();
+
+			System.out.print("> "+ teachername + " 교사 정보를 삭제하시겠습니까?(y/n)");
+			String delete = scan.nextLine();
+			
+			if (delete.toLowerCase().equals("y")) {
+				
+				sql = "{ call proc_DeleteCourse(?) }";
+				
+				conn = util.open();
+				callStat = conn.prepareCall(sql);
+				
+				callStat.setString(1, teaNum);
+				
+				callStat.executeUpdate();
+				
+//				System.out.println("Success: Delete tbl_Teacher ");
+				System.out.println("삭제를 완료했습니다.");
+				
+				stat.close();
+				callStat.close();
+				conn.close();
+				
+			} else if (delete.toLowerCase().equals("n")) {
+				System.out.println("삭제를 중지합니다.");
+			} else {
+				System.out.println("잘못된 번호를 입력하였습니다.");
+			}
+			System.out.println("이전 페이지로 돌아가겠습니다.");
+			System.out.println("계속하시려면 엔터를 눌러주세요.");
+			scan.nextLine();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Fail: Delete tbl_Teacher ");
+		}
+	}//DeleteSelectedTeacher
 
 	private void UpdateSelectedTeacher(TeacherBasic teacherBasic) {
 		// 선택된 교사 정보 출력
@@ -169,51 +236,130 @@ public class TeacherInfo {
 	}// UpdateSelectedTeacher
 
 	private void InsertAvailSubSelectedTeacher(TeacherBasic teacherBasic) {
-		// 교사 강의 가능 과목 추가
+		//교사 강의 가능 과목 추가
+				Connection conn = null;
+				CallableStatement callStat = null;
+				DBUtil util = new DBUtil();
+				Scanner scan = new Scanner(System.in);
+
+				
+				ShowSubject();
+				System.out.println();
+				
+				System.out.println("쉼표(,)를 이용하여 다중선택 가능. (예: 1,3,4,5)");
+				System.out.print("추가할 강의 가능 과목 입력 : ");
+				String subject = scan.nextLine();
+				subject = subject.replace(" ", "");
+				String[] subjectList = subject.split(",");
+				
+				try {
+					
+					for (int i = 0; i < subjectList.length; i++) {
+						
+						String sql = "{ call proc_AddAvailSubject(?,?) }";
+						
+						conn = util.open();
+						callStat = conn.prepareCall(sql);
+						
+						callStat.setString(1, teacherBasic.getSeq()+"");
+						callStat.setString(2, subjectList[i]);
+						
+						callStat.executeUpdate();
+						
+						callStat.close();
+						conn.close();
+						
+					}
+					System.out.println("===========================");
+					System.out.println("강의 가능 과목이 추가되었습니다.");
+					System.out.println("뒤로가려면 엔터를 눌러주세요.");
+					scan.nextLine();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Fail: Update tbl_teacher ");
+				}
+			}//InsertAvailSubSelectedTeacher
+
+	private int ShowSubject() {
+		//과목출력
 		Connection conn = null;
-		CallableStatement callStat = null;
+		Statement stat = null;
+		ResultSet rs = null;
 		DBUtil util = new DBUtil();
-		Scanner scan = new Scanner(System.in);
-
-		SaveTotalSubject();
-		System.out.println("[No.]\t [기간]\t [과목명]");
-		Pagingfile.page(Pagingfile.save(subList));
-		System.out.println();
-
-		System.out.println("쉼표(,)를 이용하여 다중선택 가능. (예: 1,3,4,5)");
-		System.out.print("추가할 강의 가능 과목 입력 : ");
-		String subject = scan.nextLine();
-		subject = subject.replace(" ", "");
-		String[] subjectList = subject.split(",");
+		
+		int count = 0;
 
 		try {
 
-			for (int i = 0; i < subjectList.length; i++) {
+			conn = util.open();
+			stat = conn.createStatement();
 
-				String sql = "{ call proc_AddAvailSubject(?,?) }";
-
-				conn = util.open();
-				callStat = conn.prepareCall(sql);
-
-				callStat.setString(1, teaNum);
-				callStat.setString(2, subjectList[i]);
-
-				callStat.executeUpdate();
-
-				callStat.close();
-				conn.close();
-
+			String sql = String.format("Select seq, name, period from tbl_subject where delflag = 'Y' order by seq");
+			
+			rs = stat.executeQuery(sql);
+			
+			System.out.println("[No.]\t [기간]\t [과목명]");
+			
+			while(rs.next()) {
+				System.out.printf("  %2s\t%3s주\t %s\r\n"
+						, rs.getString("seq")
+						, rs.getString("period")
+						, rs.getString("name"));
+				count++;
 			}
-			System.out.println("===========================");
-			System.out.println("강의 가능 과목이 추가되었습니다.");
-			System.out.println("뒤로가려면 엔터를 눌러주세요.");
-			scan.nextLine();
-
+			
+			stat.close();
+			conn.close();
+			
+//			System.out.println("Success: Select tbl_subject ");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Fail: Update tbl_teacher ");
+			System.out.println("Fail: Select tbl_subject ");
 		}
-	}// InsertAvailSubSelectedTeacher
+		return count;
+	}//ShowSubject		
+
+	private int SaveTotalSubject() {
+		//과목출력
+		Connection conn = null;
+		Statement stat = null;
+		ResultSet rs = null;
+		DBUtil util = new DBUtil();
+		
+		int count = 0;
+
+		try {
+
+			conn = util.open();
+			stat = conn.createStatement();
+
+			String sql = String.format("Select seq, name, period from tbl_subject where delflag = 'Y' order by seq");
+			
+			rs = stat.executeQuery(sql);
+			
+			System.out.println("[No.]\t [기간]\t [과목명]");
+			
+			while(rs.next()) {
+				System.out.printf("  %2s\t%3s주\t %s\r\n"
+						, rs.getString("seq")
+						, rs.getString("period")
+						, rs.getString("name"));
+				count++;
+			}
+			
+			stat.close();
+			conn.close();
+			
+//				System.out.println("Success: Select tbl_subject ");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Fail: Select tbl_subject ");
+		}
+		return count;
+	}//ShowSubject		
 
 	private void UpdateTelSelectedTeacher(TeacherBasic teacherBasic) {
 		// 교사 전화번호 수정

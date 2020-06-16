@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.Scanner;
 
-import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
 /**
@@ -70,6 +69,7 @@ public class StudentMain {
 			System.out.println("2. 교사 평가 관리");
 			System.out.println("3. 출결 관리");
 			System.out.println("4. 체온 조회");
+			System.out.println("5. 취업 현황 조회");
 			System.out.println("0. 뒤로가기");
 			System.out.println("=========================");
 			System.out.print("번호 : ");
@@ -92,6 +92,10 @@ public class StudentMain {
 				studentCheckCovid.checkCovid(logInStudent);
 //				Student_CheckCovid scc = new Student_CheckCovid();
 //				scc.student_checkcovid(stuseq);
+				
+			} else if (num.equals("5")) { //취업 현황 조회
+				Employment employment = new Employment();
+				employment.employment();
 				
 			} else if (num.equals("0")) { //뒤로 가기
 				break;

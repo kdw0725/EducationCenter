@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
 public class StudentScoreTeacher { 
@@ -45,7 +44,7 @@ public class StudentScoreTeacher {
 				//과목번호 배열에 담아놓기
 				list.add(rs.getString("seq"));
 				
-				System.out.printf("%s\t%3s\t%8s\t%s\t%s\t%2s\n"
+				System.out.printf("%s\t\t%3s\t\t%8s\t%s\t%s\t%2s\n"
 						, rs.getString("name")
 						, rs.getString("seq")
 						, rs.getString("subject")

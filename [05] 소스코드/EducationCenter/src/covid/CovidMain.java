@@ -1,0 +1,40 @@
+package covid;
+
+import java.util.Scanner;
+
+import admin.AdminCovid;
+import admin.TeacherCovidControl;
+
+public class CovidMain {
+	Scanner scan = new Scanner(System.in);
+	
+	public void showMain() {
+		
+		while (true) {
+			System.out.println("1. 교육생");
+			System.out.println("2. 교사");
+			System.out.println("3. 관리자");
+			System.out.println("0. 뒤로가기");
+			String input = scan.nextLine();
+			
+			if(input.equals("0")) {
+				break;
+			} else if(input.equals("1")) {
+				Covid19_student covidStudent = new Covid19_student();
+				covidStudent.covid19stu();
+			} else if(input.equals("2")) {
+				// 교사 코로나
+				TeacherCovidControl teacherCovidControl = new TeacherCovidControl();
+				teacherCovidControl.teachercovid();
+			} else if(input.equals("3")) {
+				// 관리자 코로나
+				AdminCovid adminCovid = new AdminCovid();
+				adminCovid.admincovid();
+			} else {
+				System.out.println("올바른 번호를 입력해주세요!");
+			}
+			
+		}
+	}
+
+}

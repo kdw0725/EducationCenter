@@ -2,7 +2,6 @@ package main;
 
 import java.util.Scanner;
 
-import admin.AdminBasic;
 import admin.AdminLogIn;
 import admin.AdminMain;
 import apply.ApplyMain;
@@ -10,6 +9,7 @@ import student.StudentBasic;
 import student.StudentLogIn;
 import student.StudentMain;
 import student.StudentSignIn;
+import teacher.TeacherMain;
 
 /**
  * 
@@ -77,6 +77,8 @@ public class ProjectMain {
 			}
 			else if (input.equals("3")) {
 				// 교사 로그인
+				TeacherMain teacherMain = new TeacherMain();
+				teacherMain.teacherLogin();
 			} else if (input.equals("4")) {
 				// 관리자 로그인
 				AdminLogIn logIn = new AdminLogIn();

@@ -13,8 +13,6 @@ public class AdminManageTeacher {
 		while(true) {
 			System.out.println("1. 교사 등록");
 			System.out.println("2. 교사 정보 조회");
-			System.out.println("3. 교사 근태 관리");
-			System.out.println("4. 교사 체온 ");
 			System.out.println("0. 뒤로가기");
 			System.out.print("입력 : ");
 			String input = sc.nextLine();
@@ -28,10 +26,6 @@ public class AdminManageTeacher {
 				// 교사 정보 조회
 				TeacherInfo teacherInfo = new TeacherInfo();
 				teacherInfo.showMain();
-			} else if(input.equals("3")) {
-				// 교사 근태 관리
-			} else if(input.equals("4")) {
-				// 교사 체온
 			} else {
 				System.out.println("잘못된 번호입니다.");
 				continue;

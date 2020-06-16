@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-import jdbc.DBUtil;
 
 /**
  * 
