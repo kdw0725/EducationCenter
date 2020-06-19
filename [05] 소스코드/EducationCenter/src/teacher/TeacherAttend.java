@@ -179,8 +179,8 @@ public class TeacherAttend {
 
 			while (rs.next()) {
 				list.add(String.format("%3s\t%s\t%s\t%s\t%s\t%s", rs.getString("TEANAME"),
-						rs.getString("DAYS").substring(0, 10), rs.getString("INTIME").substring(10),
-						rs.getString("OUTTIME").substring(10), rs.getString("CONATT"), rs.getString("STATUS")));
+						rs.getString("DAYS").substring(0, 10), rs.getString("INTIME") == null ? rs.getString("INTIME") : rs.getString("INTIME").substring(10),
+						rs.getString("OUTTIME") == null ? rs.getString("OUTTIME") : rs.getString("OUTTIME").substring(10), rs.getString("CONATT"), rs.getString("STATUS")));
 
 			}
 			rs.close();

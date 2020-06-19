@@ -2,6 +2,8 @@ package main;
 
 import java.util.Scanner;
 
+import com.github.lalyos.jfiglet.FigletFont;
+
 import admin.AdminLogIn;
 import admin.AdminMain;
 import apply.ApplyMain;
@@ -22,17 +24,19 @@ public class ProjectMain {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		
+		
 		while(true) {
-			System.out.println("====================");
-			System.out.println("교육센터 프로그램");
-			System.out.println("====================");
+			mainIcon();
+			figlet();
+			System.out.println("===== M A I N ========");
 			System.out.println("1. 학생 로그인");
 			System.out.println("2. 수강신청");
 			System.out.println("3. 교사 로그인");
 			System.out.println("4. 관리자 로그인");
 			System.out.println("5. 회원가입");
 			System.out.println("0. 프로그램 종료");
-			System.out.println("====================");
+			System.out.println("======================");
 			System.out.print("입력 : ");
 			
 			String input = sc.nextLine();
@@ -110,6 +114,54 @@ public class ProjectMain {
 		}
 		
 		sc.close();
+	}
+
+	private static void figlet() {
+		try {
+			String menu =  FigletFont.convertOneLine(FigletFont.class.getResourceAsStream("/flf/puffy.flf"), "  CHICK CENTER");
+			System.out.println(menu);
+		} catch (Exception e) {
+			System.out.println("ProjectMain.figlet()");
+			e.printStackTrace();
+		}
+	}
+
+	private static void mainIcon() {
+		//병알
+		
+		System.out.println("                                                                                \r\n" + 
+	               "                                                                                \r\n" + 
+	               "                                     iv5SPKS1v:.                                \r\n" + 
+	               "                                  SQQKvi:..:ivSgQD1.                            \r\n" + 
+	               "                                RBJ              .sQBP.                         \r\n" + 
+	               "                              vQr                    sBB.                       \r\n" + 
+	               "                             JBr                       YBs                      \r\n" + 
+	               "                            .ZBQEPgZBi                   QY                     \r\n" + 
+	               "                          iBBY.     QB                   :Q                     \r\n" + 
+	               "                         BBi  ..... .B..rs5Q:             Bi                    \r\n" + 
+	               "                  PQDgPBBX  ...:..  :BgLYY:SB.            B.                    \r\n" + 
+	               "                  BQ:.:Bs ....... :BBBB5    IB  :jEQBr   2B                     \r\n" + 
+	               "                   IBuQg ......:. ZBBBBBi .. PQgd1: BBB:.B.                     \r\n" + 
+	               "                     gB. ........ :BBBBE..... .   . 1B QBr                      \r\n" + 
+	               "                     7B ...:......  :r.  .......... LB                          \r\n" + 
+	               "                     DB ......:.:...   .....:...... DB                          \r\n" + 
+	               "                     gB .................:.:.:...:. vBi                         \r\n" + 
+	               "                     LB ..............:.....:...:... :RQZULi:..                 \r\n" + 
+	               "                      Br ..............:.:...:.:.:.... .:7sjjBg                 \r\n" + 
+	               "                      XQ  ......:.................:......   RB                  \r\n" + 
+	               "                       QB. ........:...:.....:........... .BB                   \r\n" + 
+	               "                        PBr  .........:...:............ .2B1                    \r\n" + 
+	               "                          BBv.   ...................  .uBg                      \r\n" + 
+	               "                     rr  7BuIQQSL:...           ..:7XgBd                        \r\n" + 
+	               "                     rgBBM    .75ZDRDDddqPqPqPbDgMZqr .Mu                      \r\n" + 
+	               "                                     ...::i::...       BB      **                 \r\n" + 
+	               "                                                      r7                        \r\n" + 
+	               "                                                                                \r\n" + 
+	               "                                                                                \r\n" + 
+	               "                                                                                ");
+		
+		
+		
 	}
 
 }

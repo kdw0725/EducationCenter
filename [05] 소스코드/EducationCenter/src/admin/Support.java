@@ -96,6 +96,7 @@ public class Support {
 			try {
 				
 				conn = util.open();
+				conn.setAutoCommit(false);
 				
 				String sql = "{ call proc_addsupport(?, ?, ?) }";
 				
@@ -127,6 +128,8 @@ public class Support {
 try {
 				
 				conn = util.open();
+				conn.setAutoCommit(false);
+
 				
 				String sql = "{ call proc_addsupport(?, ?, ?) }";
 				
@@ -165,6 +168,7 @@ try {
 			
 
 			try {
+				conn.commit();
 				stat.executeUpdate();
 				stat.close();
 				conn.close();
@@ -183,6 +187,7 @@ try {
 			
 			System.out.println("취소하였습니다.");
 			try {
+				conn.rollback();
 				stat.close();
 				conn.close();
 			} catch (SQLException e) {

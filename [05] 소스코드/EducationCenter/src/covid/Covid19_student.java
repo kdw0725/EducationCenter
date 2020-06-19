@@ -30,26 +30,29 @@ public class Covid19_student {
 		try {
 			conn = util.open();
 			//날짜 나중에 수정할 것
-			String sql = "select * from vw_seecovidstu where days = sysdate";
-			stat = conn.createStatement();
+			String sql = "select stu.name, stu.seq as stuseq, atts.days  from tbl_attend_student atts \r\n" + 
+		               "    inner join tbl_apply appl on atts.appseq = appl.seq \r\n" + 
+		               "        inner join tbl_student stu on appl.stuseq = stu.seq\r\n" + 
+		               "         where appl.delflag = 'Y'and days =  to_date(sysdate, 'yy-mm-dd')\r\n" + 
+		               "            order by name";
+		         stat = conn.createStatement();
 
-			System.out.println("오늘 출근한 명단입니다.");
-			System.out.println("[번호][학생이름][학생번호]  [날짜]\t[오전온도]\t[오후온도]");
-			rs = stat.executeQuery(sql);
-			
-			List<String> list = new ArrayList<String>();
-			
-			while(rs.next()) {
-				
-				
-				
-					list.add(rs.getString("name")+"\t"+rs.getString("stuseq")+"\t"+
-							rs.getString("days").substring(0,10)+"\t"+rs.getString("amtemp")
-							+"\t"+rs.getString("pmtemp"));
-				
-				
-				
-			}//while
+		         System.out.println("오늘 출근한 명단입니다.");
+		         System.out.println("[번호][학생이름][학생번호]  [날짜]");
+		         rs = stat.executeQuery(sql);
+		         
+		         List<String> list = new ArrayList<String>();
+		         
+		         while(rs.next()) {
+		            
+		            
+		            
+		               list.add(rs.getString("name")+"\t"+rs.getString("stuseq")+"\t"+
+		                     rs.getString("days").substring(0,10));
+		            
+		            
+		            
+		         }//while
 			
 			Pagingfile.page(list);
 			
@@ -385,8 +388,8 @@ try {
 				String answer = scan.nextLine();
 				if(answer.equals("1")) {
 			
-					System.out.println(amtemp1);
-					System.out.println(pmtemp1);
+//					System.out.println(amtemp1);
+//					System.out.println(pmtemp1);
 					stat.setString(1, amtemp1);
 					stat.setString(2, pmtemp1);
 					stat.setString(3, stseq);
