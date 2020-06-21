@@ -14,11 +14,18 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 김영현
+ * 국비지원 관련 클래스
+ */
 public class Support {
 	
 	 Scanner scan = new Scanner(System.in);
 
-
+	 /**
+	  *국비지원 메뉴 
+	  */
 	public void supportmenu() {
 		// 2-1-6. 국비지원
 		System.out.println("국비지원 전체 보기입니다.");

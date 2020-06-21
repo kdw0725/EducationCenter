@@ -14,9 +14,9 @@ import java.util.Scanner;
 import oracle.jdbc.OracleTypes;
 
 /**
- * 학생의 출결을 담당하는 클래스
+ * 
  * @author 장정우
- *
+ * 학생의 출결을 담당하는 클래스
  */
 public class StudentCheckAttend {
 	

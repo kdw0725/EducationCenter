@@ -11,12 +11,21 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 정희수
+ * 점수입력 관련 클래스
+ */
 public class TeacherScore {
 
 	Scanner scan = new Scanner(System.in);
 
 	int Tnum = 1;
 
+	/**
+	 * 성적 관리 메소드
+	 * @param 교사 번호
+	 */
 	public void teacher_scorecheck(int Tnum) { // 4. 성적 관리
 		try {
 
@@ -61,6 +70,10 @@ public class TeacherScore {
 	}
 
 
+	/**
+	 * 점수 확인 관련 메소드
+	 * @param 교사번호
+	 */
 	public void teacher_socreout(int Tnum) { // 4-2 페이지
 
 		try {
@@ -110,6 +123,9 @@ public class TeacherScore {
 
 	}
 
+	/**
+	 * 과목 목록 출력
+	 */
 	private static void t015() {
 		/*
 		 * 15-1. 과목 목록 출력시 과목번호, 과정명, 과정기간(시작 년월일, 끝 년월일), 강의실, 과목명, 과목기간(시작 년월일, 끝
@@ -204,6 +220,10 @@ public class TeacherScore {
 
 	}// t015
 
+	/**
+	 * 특정 학생의 성적 출력
+	 * @param 교사 번호
+	 */
 	private static void teacherScoreOut(int Tnum) {
 
 		// 학생별 점수 확인 4-2-1
@@ -331,7 +351,10 @@ public class TeacherScore {
 	}// teacherScoreOut
 	
 	
-
+	/**
+	 * 교사 점수 입력
+	 * @param 교사 번호
+	 */
 	private static void teacherScoreIn(int Tnum) {
 		/*
 		 * 교사는 자신이 강의를 마친 과목의 목록 중에서 특정 과목을 선택하면, 교육생 정보가 출력되고, 특정 교육생 정보를 선택하면, 해당 교육생의

@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author 장정우
+ * 학생의 취업을 담당하는 클래스
+ */
 public class Employment {
 	
 	Connection conn = null;
@@ -17,6 +22,9 @@ public class Employment {
 	//페이징 배열
 	List<Paging> list = new ArrayList<Paging>();
 	
+	/**
+	 * 취업 현황 조회
+	 */
 	public void employment() { //취업 현황 조회
 		
 		try {

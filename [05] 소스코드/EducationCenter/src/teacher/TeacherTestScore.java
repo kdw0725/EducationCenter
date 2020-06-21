@@ -9,11 +9,15 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.internal.OracleTypes;
 
+/**
+ * 
+ * @author 백지현
+ * 교사 성적 조회
+ */
 public class TeacherTestScore {
 
 	/**
 	 * 교사별 개설과정 확인 메소드
-	 * 백지현
 	 * @param teaNum 교사seq
 	 */
 	public void TeacherScoreCourseVw(String teaNum) {
@@ -96,7 +100,6 @@ public class TeacherTestScore {
 
 	/**
 	 * 교사별 개설과정별 과목출력 메소드
-	 * 백지현
 	 * @param teaNum 교사seq
 	 * @param oCrsSeq 개설과정seq
 	 */
@@ -180,7 +183,6 @@ public class TeacherTestScore {
 
 	/**
 	 * 개설과목별 교사평가 점수 확인 메소드
-	 * 백지현
 	 * @param teaNum 교사seq
 	 * @param oSubSeq 개설과목seq
 	 */

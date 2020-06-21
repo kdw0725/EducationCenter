@@ -1,8 +1,12 @@
 package teacher;
 
+/**
+ * 
+ * @author 정희수
+ * 페이징을 담당하는 클래스
+ */
 public class Paging {
 
-	
 	private String name;
 	private String days;
 	private String intime;

@@ -1,5 +1,10 @@
 package student;
 
+/**
+ * 페이지 관리 DTO
+ * @author 김영현
+ *
+ */
 public class Paging {
 	
 	private String name;

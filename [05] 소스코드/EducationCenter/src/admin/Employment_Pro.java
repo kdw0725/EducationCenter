@@ -12,6 +12,11 @@ import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 import student.Paging;
 
+/**
+ * 
+ * @author 신수진
+ * 학생 취업 관련 클래스
+ */
 public class Employment_Pro {
 	
 	Connection conn = null;
@@ -23,6 +28,9 @@ public class Employment_Pro {
 	//페이징 배열
 	List<Paging> list = new ArrayList<Paging>();
 	
+	/**
+	 * 학생 취업 조회
+	 */
 	public void employment_pro() {
 		
 		try {

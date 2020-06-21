@@ -1,12 +1,15 @@
 package course;
 
+/**
+ * 
+ * @author 김동욱
+ * 과정 DTO
+ */
 public class CourseBasic {
 	private int     seq;
 	private String  name;
 	private int		period;
 	private boolean delflag;
-	
-	
 	
 	public CourseBasic(int seq, String name, int period, boolean delflag) {
 		this.seq = seq;

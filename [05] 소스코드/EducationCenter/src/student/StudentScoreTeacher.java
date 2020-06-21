@@ -8,6 +8,11 @@ import java.util.Scanner;
 
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 장정우
+ * 교사 평가를 담당하는 클래스
+ */
 public class StudentScoreTeacher { 
    
    Connection conn = null;
@@ -18,6 +23,10 @@ public class StudentScoreTeacher {
    ArrayList<String> list = new ArrayList<String>();
    int result;
    
+   /**
+    * 교사 평가 관리
+    * @param 학생 번호
+    */
    public void student_scoreteacher(int stuseq) { // 2. 교사 평가 관리
       
       try {

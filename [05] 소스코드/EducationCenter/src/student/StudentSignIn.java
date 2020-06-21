@@ -9,7 +9,8 @@ import java.util.regex.Pattern;
 
 /**
  * 
- * @author 김동욱 학생 회원가입을 위한 클래스
+ * @author 김동욱 
+ * 학생 회원가입을 위한 클래스
  */
 public class StudentSignIn {
 

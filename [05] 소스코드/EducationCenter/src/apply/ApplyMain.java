@@ -12,9 +12,9 @@ import jdbc.DBUtil;
 import student.StudentBasic;
 
 /**
- * 수강신청을 담당하는 클래스
+ * 
  * @author 김동욱
- *
+ * 수강신청을 담당하는 클래스
  */
 public class ApplyMain {
 	

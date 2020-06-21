@@ -10,11 +10,15 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.internal.OracleTypes;
 
+/**
+ * 
+ * @author 백지현
+ * 교사의 메인을 담당하는 클래스
+ */
 public class TeacherMain {
 
 	/**
 	 * 교사 메인 메소드
-	 * 백지현
 	 * @param teaNum 교사SEQ
 	 */
 	public void teacherMain(String teaNum) {

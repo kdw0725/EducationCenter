@@ -11,8 +11,17 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 김영현
+ * 교사 출결음 담당하는 클래스
+ */
 public class TeacherAttend {
 
+	/**
+	 * 교사 출결 메인 함수
+	 * @param 교사번호
+	 */
 	public void teacherAttendMain(String teaNum) { // 3. 출결 관리
 		Scanner scan = new Scanner(System.in);
 

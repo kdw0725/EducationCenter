@@ -2,10 +2,19 @@ package teacher;
 
 import java.util.Scanner;
 
+/**
+ * 
+ * @author 정희수
+ * 교사의 출석을 담당하는 클래스
+ */
 public class TeacherChulSuk {
 
 	Scanner scan = new Scanner(System.in);
 
+	/**
+	 * 교사의 핛갱관리 메뉴
+	 * @param 교사번호
+	 */
 	public void teacher_studentcheck(int Tnum) { // 5. 학생 관리
 
 		try {
@@ -44,6 +53,10 @@ public class TeacherChulSuk {
 		}
 	}
 
+	/**
+	 * 학생 중도탈락 관련 메소드
+	 * @param 교사번호
+	 */
 	public void teacher_studentfail(int Tnum) { // 5-1. 중도탈락 학생 관리
 		while (true) {
 			System.out.println("===============================================");
@@ -74,6 +87,10 @@ public class TeacherChulSuk {
 
 	}
 
+	/**
+	 * 학생의 출결을 담당하는 메소드
+	 * @param 교사번호
+	 */
 	public void teacher_studentattcheck(int Tnum) { // 5-2. 학생 출결 관리
 
 		try {

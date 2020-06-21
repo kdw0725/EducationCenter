@@ -5,9 +5,17 @@ import java.util.Scanner;
 import admin.AdminCovid;
 import admin.TeacherCovidControl;
 
+/**
+ * 
+ * @author 김동욱
+ * 코로나 메인을 담당하는 클래스
+ */
 public class CovidMain {
 	Scanner scan = new Scanner(System.in);
 	
+	/**
+	 * 코로나 메인
+	 */
 	public void showMain() {
 		
 		while (true) {

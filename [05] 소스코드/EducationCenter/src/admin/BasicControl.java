@@ -11,6 +11,11 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 기초정보 관리 관련 클래스
+ * @author 신수진
+ *
+ */
 public class BasicControl {
 	
 	static Scanner scan = new Scanner(System.in);
@@ -18,6 +23,9 @@ public class BasicControl {
 	static List<String> bookList = new ArrayList<String>();
 
 
+	/**
+	 * 기초 정보 관리
+	 */
 	public void basicDataMenu() {
 		//기초 정보 관리
 		

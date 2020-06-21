@@ -14,11 +14,16 @@ import admin.Pagingfile;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 백지현
+ * 교사의 코로나를 담당하는 클래스
+ */
 public class Covid19_Teacher {
 	
 	 static Scanner scan = new Scanner(System.in);
 
-	
+	// 교사 코로나 메인
 	public static void main(String[] args) {
 		
 		covidCheckMenu();

@@ -24,8 +24,6 @@ public class ProjectMain {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		
-		
 		while(true) {
 			mainIcon();
 			figlet();
@@ -53,14 +51,15 @@ public class ProjectMain {
 				
 				StudentMain studentMain = new StudentMain();
 				try {
+					// 로그인시 로그인된 객체를 결과로 받아옴
 					studentMain.showInfo(logInStudent);
+					// 그 결과를 통하여 메뉴 출력하기
 					studentMain.showMenu(logInStudent);
-				} catch (NullPointerException e) {
+				} catch (NullPointerException e) {	// 개강이 되지 않는 경우 처리
 					System.out.println("본 서비스는 개강 이후 이용이 가능합니다. 개강일이 지난 이후 이용해주세요!");
 					System.out.println("뒤로 돌아가시려면 아무키나 눌러주시기 바랍니다.");
 					sc.nextLine();
 				} 
-				
 				catch (Exception e) {
 					System.out.println("ProjectMain.main()");
 					e.printStackTrace();
@@ -72,6 +71,7 @@ public class ProjectMain {
 				StudentBasic logInStudent = login.logIn();
 				if(logInStudent != null) {
 					ApplyMain apply = new ApplyMain();
+					// 수강신청이 존재하는지 확인
 					if(apply.checkApply(logInStudent) == 0) {
 						apply.showMain(logInStudent);
 					} else {
@@ -116,6 +116,7 @@ public class ProjectMain {
 		sc.close();
 	}
 
+	// Chick Center 글씨 출력
 	private static void figlet() {
 		try {
 			String menu =  FigletFont.convertOneLine(FigletFont.class.getResourceAsStream("/flf/puffy.flf"), "  CHICK CENTER");
@@ -126,8 +127,8 @@ public class ProjectMain {
 		}
 	}
 
+	// 병아리 아이콘 출력
 	private static void mainIcon() {
-		//병알
 		
 		System.out.println("                                                                                \r\n" + 
 	               "                                                                                \r\n" + 

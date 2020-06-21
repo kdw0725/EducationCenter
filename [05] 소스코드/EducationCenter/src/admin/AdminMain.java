@@ -4,8 +4,16 @@ import java.util.Scanner;
 
 import covid.CovidMain;
 
+/**
+ * 
+ * @author 신수진
+ * 관리자 메인 화면
+ */
 public class AdminMain {
 	
+	/**
+	 * 관리자 메인 화면
+	 */
 	public void showMain() {
 		
 		Scanner sc = new Scanner(System.in);

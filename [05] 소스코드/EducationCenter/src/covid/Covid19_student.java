@@ -15,9 +15,14 @@ import admin.Pagingfile;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 김영현
+ * 학생의 코로나를 담당하는 클래스
+ */
 public class Covid19_student {
 	
-	 Scanner scan = new Scanner(System.in);
+	Scanner scan = new Scanner(System.in);
 	
 	private List<String> seecovid19stutoday() {
 		// 오늘 출근한 사람 보여주기
@@ -72,6 +77,9 @@ public class Covid19_student {
 		
 	}
 
+	/**
+	 * 학생 코로나 메인 함수
+	 */
 	public void covid19stu() {
 
 		
@@ -109,6 +117,9 @@ public class Covid19_student {
 		
 	}
 
+	/**
+	 * 학생 코로나 출력 메소드
+	 */
 	private void seecovid() {
 		// 메뉴
 
@@ -152,78 +163,67 @@ public class Covid19_student {
 
 
 	private void findcovidstudate() {
-		//특정 기간 입력받아서 조회하기
-		
-System.out.print("조회하고싶은 시작일을 입력하여 주십시오. (yy-mm-dd): ");
-String startdate = scan.nextLine();
+		// 특정 기간 입력받아서 조회하기
 
-System.out.print("조회하고싶은 종료일을 입력하여 주십시오. (yy-mm-dd): ");
-String enddate = scan.nextLine();
+		System.out.print("조회하고싶은 시작일을 입력하여 주십시오. (yy-mm-dd): ");
+		String startdate = scan.nextLine();
 
+		System.out.print("조회하고싶은 종료일을 입력하여 주십시오. (yy-mm-dd): ");
+		String enddate = scan.nextLine();
 
-SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
-dateFormat.setLenient(false);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
+		dateFormat.setLenient(false);
 
+		try {
+			Date date = dateFormat.parse(startdate);
 
-try {
-	Date date = dateFormat.parse(startdate);
-	
-	Calendar c1 = Calendar.getInstance();
-	c1.setTime(date);
-	String start = String.format("%tF", c1);
-	
-	date = dateFormat.parse(enddate);
-	c1.setTime(date);
-	String end = String.format("%tF", c1);
+			Calendar c1 = Calendar.getInstance();
+			c1.setTime(date);
+			String start = String.format("%tF", c1);
 
+			date = dateFormat.parse(enddate);
+			c1.setTime(date);
+			String end = String.format("%tF", c1);
 
+			Connection conn = null;
+			CallableStatement stat = null;
+			DBUtil util = new DBUtil();
+			ResultSet rs = null;
 
+			try {
+				conn = util.open();
+				String sql = " { call proc_findcovidstudate(?, ?, ?) } ";
+				stat = conn.prepareCall(sql);
 
-Connection conn = null;
-CallableStatement stat = null;
-DBUtil util = new DBUtil();
-ResultSet rs = null;
+				stat.setString(1, start);
+				stat.setString(2, end);
+				stat.registerOutParameter(3, OracleTypes.CURSOR);
 
-try {
-	conn = util.open();
-	String sql = " { call proc_findcovidstudate(?, ?, ?) } ";
-	stat = conn.prepareCall(sql);
-	
-	stat.setString(1, start);
-	stat.setString(2, end);
-	stat.registerOutParameter(3, OracleTypes.CURSOR);
+				stat.executeQuery();
 
-	stat.executeQuery();
+				rs = (ResultSet) stat.getObject(3);
 
-	rs = (ResultSet)stat.getObject(3);
-	
-	
-	List<String> list = new ArrayList<String>();
-	
-	System.out.println("[번호]\t[학생이름]\t[학생번호]\t[날짜]\t[오전온도]\t[오후온도]");
-	while(rs.next()) {
-		list.add(rs.getString("name") +"\t" + rs.getString("stuseq") +"\t" 
-	+rs.getString("days").substring(0,10)+"\t" +rs.getString("amtemp") +"\t" + rs.getString("pmtemp"));
-	}
-	
-	Pagingfile.page(list);
-	
-	
-	rs.close();
-	conn.close();
-	stat.close();
-		
-		
-		
+				List<String> list = new ArrayList<String>();
 
-	
-	
-	
- }catch (Exception e) {
-	System.out.println("학생의 번호가 존재하지않습니다.");
-	} }catch (java.text.ParseException e){
-  System.out.println("잘못된 날짜 입력입니다.");
- }
+				System.out.println("[번호]\t[학생이름]\t[학생번호]\t[날짜]\t[오전온도]\t[오후온도]");
+				while (rs.next()) {
+					list.add(rs.getString("name") + "\t" + rs.getString("stuseq") + "\t"
+							+ rs.getString("days").substring(0, 10) + "\t" + rs.getString("amtemp") + "\t"
+							+ rs.getString("pmtemp"));
+				}
+
+				Pagingfile.page(list);
+
+				rs.close();
+				conn.close();
+				stat.close();
+
+			} catch (Exception e) {
+				System.out.println("학생의 번호가 존재하지않습니다.");
+			}
+		} catch (java.text.ParseException e) {
+			System.out.println("잘못된 날짜 입력입니다.");
+		}
 	
 		
 		

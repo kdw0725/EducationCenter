@@ -13,10 +13,17 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 정희수
+ * 교사 상태를 알려주는 클래스
+ */
 public class Teacher {
-
+	
+	/**
+	 * 모든 출결 조회는 근태 상황을 구분할 수 있어야 한다.(정상, 지각, 조퇴, 외출, 병가, 기타) 
+	 */
 	public void t023() {
-		// 모든 출결 조회는 근태 상황을 구분할 수 있어야 한다.(정상, 지각, 조퇴, 외출, 병가, 기타)
 
 		Connection conn = null;
 		ResultSet rs = null;
@@ -61,8 +68,11 @@ public class Teacher {
 
 	}// t023
 
+	/**
+	 * 특정(특정 과정, 특정 인원) 출결 현황을 조회할 수 있어야 한다.
+	 * @param 교사 번호
+	 */
 	public void t022(int Tnum) {
-		// 특정(특정 과정, 특정 인원) 출결 현황을 조회할 수 있어야 한다.
 
 		Connection conn = null;
 		ResultSet rs = null;
@@ -160,8 +170,12 @@ public class Teacher {
 
 	}// t022
 
+	/**
+	 * 출결 현황을 기간별(년, 월, 일) 조회할 수 있어야 한다.
+	 * @param 교사 번호
+	 * @throws Exception
+	 */
 	public void t021(int Tnum) throws Exception {
-		// 출결 현황을 기간별(년, 월, 일) 조회할 수 있어야 한다.
 
 		Connection conn = null;
 		ResultSet rs = null;
@@ -320,8 +334,11 @@ public class Teacher {
 
 	}// t021
 
+	/**
+	 * 교사가 강의한 과정에 한해 선택하는 경우 모든 교육생의 출결을 조회할 수 있어야 한다.
+	 * @param 교사번호
+	 */
 	public void t020(int Tnum) {
-		// 교사가 강의한 과정에 한해 선택하는 경우 모든 교육생의 출결을 조회할 수 있어야 한다.
 
 		Connection conn = null;
 		ResultSet rs = null;
@@ -396,8 +413,11 @@ public class Teacher {
 
 	}// t020
 
+	/**
+	 * 중도 탈락 처리된 교육생의 성적인 경우 중도탈락 이후 날짜의 성적은 입력하지 않는다.
+	 * @param 교사 번호
+	 */
 	public void t019(int Tnum) {
-		// 중도 탈락 처리된 교육생의 성적인 경우 중도탈락 이후 날짜의 성적은 입력하지 않는다.
 
 		Connection conn = null;
 		CallableStatement stat = null;
@@ -532,8 +552,10 @@ public class Teacher {
 
 	}// t019
 
+	/**
+	 * 중도 탈락인 경우 중도탈락 날짜가 출력되도록 한다.
+	 */
 	public void t018() {
-		// 중도 탈락인 경우 중도탈락 날짜가 출력되도록 한다.
 
 		Connection conn = null;
 		ResultSet rs = null;
@@ -574,10 +596,10 @@ public class Teacher {
 
 	}// t018
 
+	/*
+	 * 과정을 중도 탈락해서 성적 처리가 제외된 교육생이더라도 교육생 명단에는 출력되어야 한다. 중도 탈락 여부를 확인할 수 있도록 해야 한다.
+	 */
 	public void t017() {
-		/*
-		 * 과정을 중도 탈락해서 성적 처리가 제외된 교육생이더라도 교육생 명단에는 출력되어야 한다. 중도 탈락 여부를 확인할 수 있도록 해야 한다.
-		 */
 
 		Connection conn = null;
 		ResultSet rs = null;
@@ -624,8 +646,10 @@ public class Teacher {
 
 	}// t017
 
+	/**
+	 * 성적 등록 여부는 교육생 전체에 대해서 성적을 등록했는지의 여부를 출력한다.
+	 */
 	public void t016() {
-		// 성적 등록 여부는 교육생 전체에 대해서 성적을 등록했는지의 여부를 출력한다.
 
 		Connection conn = null;
 		ResultSet rs = null;
@@ -671,14 +695,15 @@ public class Teacher {
 
 	}// t016
 
+	/**
+	 * 15-1. 과목 목록 출력시 과목번호, 과정명, 과정기간(시작 년월일, 끝 년월일), 강의실, 과목명, 과목기간(시작 년월일, 끝
+	 * 년월일), 교재명, 출결, 필기, 실기 배점, 성적 등록 여부 등이 출력
+	 * 
+	 * 15-2. 특정 과목을 과목번호로 선택시 교육생 정보(이름, 전화번호, 수료 또는 중도탈락) 및 성적이 출결, 필기, 실기 점수로
+	 * 구분되어서 출력되어야 한다.
+	 */
 	public void t015() { // 페이징하기
-		/*
-		 * 15-1. 과목 목록 출력시 과목번호, 과정명, 과정기간(시작 년월일, 끝 년월일), 강의실, 과목명, 과목기간(시작 년월일, 끝
-		 * 년월일), 교재명, 출결, 필기, 실기 배점, 성적 등록 여부 등이 출력
-		 * 
-		 * 15-2. 특정 과목을 과목번호로 선택시 교육생 정보(이름, 전화번호, 수료 또는 중도탈락) 및 성적이 출결, 필기, 실기 점수로
-		 * 구분되어서 출력되어야 한다.
-		 */
+
 
 		Connection conn = null;
 		CallableStatement stat = null;
@@ -764,6 +789,10 @@ public class Teacher {
 
 	}// t015
 
+	/**
+	 * 학생별 점수 확인
+	 * @param 교사번호
+	 */
 	public void teacherScoreOut(int Tnum) {
 
 		// 학생별 점수 확인 4-2-1
@@ -890,6 +919,10 @@ public class Teacher {
 
 	}// teacherScoreOut
 
+	/**
+	 * 교사가 학생 점수 입력
+	 * @param 교사번호
+	 */
 	public void teacherScoreIn(int Tnum) {
 
 		Connection conn = null;

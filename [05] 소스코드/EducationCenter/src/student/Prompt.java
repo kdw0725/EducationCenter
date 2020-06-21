@@ -3,8 +3,16 @@ package student;
 import java.util.Calendar;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author 장정우
+ * 달력 입출력을 원한 메소드
+ */
 public class Prompt {
 	
+	/**
+	 * 달력 출력 실행
+	 */
 	public void runPrompt(){
 		
 		Scanner scan = new Scanner(System.in);

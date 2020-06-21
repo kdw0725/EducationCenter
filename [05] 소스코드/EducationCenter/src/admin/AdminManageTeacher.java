@@ -6,8 +6,16 @@ import java.util.Scanner;
 
 import jdbc.DBUtil;
 
+/**
+ * 
+ * @author 김영현
+ * 교사 출결 관리 클래스
+ */
 public class AdminManageTeacher {
 	
+	/**
+	 * 교사 출결 관리 메인
+	 */
 	public void showMain() {
 		Scanner sc = new Scanner(System.in);
 		while(true) {

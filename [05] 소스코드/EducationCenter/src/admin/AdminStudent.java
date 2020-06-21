@@ -11,10 +11,18 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 신수진
+ * 관리자 학생 관리 클래스
+ */
 public class AdminStudent {
 	static Scanner scan = new Scanner(System.in);
 	static List<String> stuList = new ArrayList<String>();
 	
+	/**
+	 * 학생 관리 메인
+	 */
 	public void showMenu(){
 		while(true) {
 			System.out.println("====================");
@@ -104,6 +112,10 @@ public class AdminStudent {
 		
 	}//StudentInfoMenu
 	
+	/**
+	 * 수료 및 중도탈락 처리
+	 * @param 학생 번호
+	 */
 	public void UpdateStuStatus(String stuseq) {
 		//수료 및 중도탈락처리
 		Connection conn = null;
@@ -147,6 +159,10 @@ public class AdminStudent {
 		}
 	}//UpdateStuStatus
 	
+	/**
+	 * 교육생 삭제
+	 * @param 학생 번호
+	 */
 	public void DeleteSelectedStu(String stuseq) {
 		//학생삭제
 		Connection conn = null;
@@ -190,6 +206,10 @@ public class AdminStudent {
 		}
 	}//DeleteSelectedStu
 	
+	/**
+	 * 학생 정보 수정
+	 * @param 학생 번호
+	 */
 	public void UpdateSelectedStu(String stuseq) {
 		//학생수정
 		Connection conn = null;
@@ -230,6 +250,9 @@ public class AdminStudent {
 		}
 	}//UpdateSelectedStu
 
+	/**
+	 * 학생 이름으로 검색
+	 */
 	public void SearchStuFromName() {
 		//이름으로 검색
 		Connection conn = null;
@@ -406,6 +429,9 @@ public class AdminStudent {
 		}
 	}//SearchStuFromName
 
+	/**
+	 * 아이디로 검색
+	 */
 	public void SearchStuFromId() {
 		//아이디로 검색
 		Connection conn = null;
@@ -549,6 +575,10 @@ public class AdminStudent {
 		}
 	}//SearchStuFromId
 
+	/**
+	 * 학생의 번호를 입력받아서 입력한 학생의 정보 출력
+	 * @param 학생 번호
+	 */
 	public void ShowStuSelectedNum(String stuNum) {
 		//학생 번호 입력 > 입력한 학생 정보 출력
 		Connection conn = null;
@@ -668,6 +698,9 @@ public class AdminStudent {
 		}
 	}//ShowStuSelectedNum
 
+	/**
+	 * 전체 학생 조회
+	 */
 	public void SaveTotalStudent() {
 		//전체 학생 조회
 		Connection conn = null;

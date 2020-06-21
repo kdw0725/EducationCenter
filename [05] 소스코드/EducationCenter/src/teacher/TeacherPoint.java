@@ -8,8 +8,17 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.internal.OracleTypes;
 
+/**
+ * 
+ * @author 백지현
+ * 교사 배점 관련 클래스
+ */
 public class TeacherPoint {
 
+	/**
+	 * 배점 조회
+	 * @param 교사 번호
+	 */
 	public void pointCourseVw(String teaNum) {
 
 		Connection conn = null;
@@ -86,6 +95,11 @@ public class TeacherPoint {
 		}
 	}
 
+	/**
+	 * 과목별 배점 조회
+	 * @param 교사번호
+	 * @param 개설 과목 번호
+	 */
 	public void pointSubjectVw(String teaNum, String oCrsSeq) {
 
 		Connection conn = null;
@@ -163,6 +177,12 @@ public class TeacherPoint {
 		}
 	}
 
+	/**
+	 * 과목별, 과정별 교사 배점 조회
+	 * @param 교사 번호
+	 * @param 개설 과정 번호
+	 * @param 개설 과목 번호
+	 */
 	public void pointSubjectVwDetail(String teaNum, String oCrsSeq, String oSubSeq) {
 
 		Connection conn = null;
@@ -238,6 +258,16 @@ public class TeacherPoint {
 
 	}
 
+	/**
+	 * 학생 점수 입력
+	 * @param 개설 과목 번호
+	 * @param 필기점수
+	 * @param 실기점수
+	 * @param 출석점수
+	 * @param 시험 일자
+	 * @param 시험 파일
+	 * @return 성공여부
+	 */
 	public int pointInsert(String oSubSeq, String write, String performance, String attend, String testdate,
 			String testfile) {
 

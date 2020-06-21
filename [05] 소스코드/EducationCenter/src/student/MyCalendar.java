@@ -1,7 +1,11 @@
 package student;
 
 import java.util.Calendar;
-
+/**
+ * 달력 클래스
+ * @author 장정우
+ *
+ */
 public class MyCalendar { // 달력
 	
 	//월별 몇일까지 있는지
@@ -10,7 +14,11 @@ public class MyCalendar { // 달력
 	private static int[] LEAP_MAX_DAYS = new int[] {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	
 	
-	// 윤년 계산
+	/**
+	 * 윤년 계산 메소드
+	 * @param 연
+	 * @return 윤년 여부
+	 */
 	public boolean isLeapYear(int year){
 		
 		if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)){
@@ -20,7 +28,12 @@ public class MyCalendar { // 달력
 		
 	}
 	
-	//월별 몇일까지 있는지 계산
+	/**
+	 * 월별 일수 계산
+	 * @param 연
+	 * @param 월
+	 * @return 월별 최대 일
+	 */
 	public int getMaxDayOfMonth(int year, int month){
 		
 		if(isLeapYear(year)){
@@ -31,7 +44,11 @@ public class MyCalendar { // 달력
 		
 	}
 	
-	//달력 출력
+	/**
+	 * 달력을 출력해주는 메소드 
+	 * @param 연
+	 * @param 월
+	 */
 	public void printCalendar(int year, int month){
 		
 		System.out.printf("<<< %4d년 %3d월 >>>>\n", year, month + 1);

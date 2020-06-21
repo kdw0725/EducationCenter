@@ -18,10 +18,18 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 김영현
+ * 개설 과정 관리 클래스
+ */
 public class OpenCourseControl {
 	
 	 Scanner scan = new Scanner(System.in);
 	
+	 /**
+	  * 개설과정 관리
+	  */
 	 public void manageocrs() {
 		// 개설과정 관리
 

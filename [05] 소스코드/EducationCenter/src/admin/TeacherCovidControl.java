@@ -15,6 +15,11 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 김영현
+ * 교사 체온 관리
+ */
 public class TeacherCovidControl {
 	
 	Connection conn = null;
@@ -24,6 +29,9 @@ public class TeacherCovidControl {
 	DBUtil util = new DBUtil();
 	Scanner scan = new Scanner(System.in);
 	
+	/**
+	 * 교사 체온 메인
+	 */
 	public void teachercovid() {
 
 		String sql = "";

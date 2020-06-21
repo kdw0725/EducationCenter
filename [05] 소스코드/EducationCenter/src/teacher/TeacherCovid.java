@@ -9,11 +9,15 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.internal.OracleTypes;
 
+/**
+ * 
+ * @author 백지현
+ * 교사의 체온을 담당하는 클래스
+ */
 public class TeacherCovid {
 
    /**
     * 교사 체온확인 메소드
-    * 백지현
     * @param teaNum 교사seq
     */
    public void seeTeacherCovid(String teaNum) {

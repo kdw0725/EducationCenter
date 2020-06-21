@@ -14,7 +14,12 @@
 		<th>세미 프로젝트</th>
 		<th>개발인원</th>
 		<th>팀 / 6명<br>
-		  (<a href="https://github.com/kdw0725">김동욱</a>｜장정우｜신수진｜김영현｜정희수｜백지현)
+		  (<a href="https://github.com/kdw0725">김동욱</a>｜
+		  <a href="https://github.com/JeongWoo-Jang">장정우</a>｜
+		  <a href="https://github.com/ssj5037">신수진</a>｜
+		  <a href="https://github.com/Kimyoung-hyun">김영현</a>｜
+		  <a href="https://github.com/Heesu-Jeong">정희수</a>｜
+		  <a href="https://github.com/jihyun-back">백지현</a>)
 		</th>
     </tr>
     <tr>

@@ -7,8 +7,17 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.OracleTypes;
 
+/**
+ * 
+ * @author 김동욱
+ * 관리자 로그인 관련 클래스
+ */
 public class AdminLogIn {
 	
+	/**
+	 * 로그인 관련 메소드
+	 * @return 로그인 결과
+	 */
 	public int logIn() {
 		
 		// 관리자로그인

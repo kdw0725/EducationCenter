@@ -4,7 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author 김영현
+ * 페이징 관련 클래스
+ */
 public class Pagingfile {
+	
+	/**
+	 * 
+	 * @param 원본 리스트
+	 * @return 가공 리스트
+	 */
 	public static List<String> save(List<String> list) {
 
 		List<String> list2 = new ArrayList<String>();
@@ -22,6 +33,11 @@ public class Pagingfile {
 
 		return list2;
 	}
+	
+	/**
+	 * 페이징 처리하기
+	 * @param 가공 리스트
+	 */
 	public static void pageNonum(List<String> arrayList) {
 		 //10개씩 분할
 	      List<String[]> depart = new ArrayList<String[]>();
@@ -135,6 +151,10 @@ public class Pagingfile {
 		
 	}
 
+	/**
+	 * 10개씩 분학해서 출력하기
+	 * @param 가공된 리스트
+	 */
 	public static void page(List<String> arrayList) {
 
 		// 10개씩 분할

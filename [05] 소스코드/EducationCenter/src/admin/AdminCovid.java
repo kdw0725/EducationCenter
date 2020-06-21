@@ -11,6 +11,11 @@ import oracle.jdbc.OracleTypes;
 import student.DBUtil;
 import student.Paging;
 
+/**
+ * 
+ * @author 김영현
+ * 관리자 체온 관련 메소드
+ */
 public class AdminCovid {
 	
 	Connection conn = null;
@@ -20,6 +25,9 @@ public class AdminCovid {
 	List<Paging> list = new ArrayList<Paging>();
 	Scanner scan = new Scanner(System.in);
 	
+	/**
+	 * 관리자 체온 메인화면
+	 */
 	public void admincovid() {
 		
 		String sql = "";

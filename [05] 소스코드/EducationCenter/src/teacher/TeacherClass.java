@@ -9,11 +9,15 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import oracle.jdbc.internal.OracleTypes;
 
+/**
+ * 
+ * @author 백지현
+ * 교사에 관련된 메소드들이 있는 클래스
+ */
 public class TeacherClass {
 
 	/**
 	 * 과목에 등록된 학생 정보 출력 메소드
-	 * 백지현
 	 * @param teaNum 교사 seq
 	 * @param oSubSeq 개설과목 seq
 	 */
@@ -165,7 +169,6 @@ public class TeacherClass {
 
 	/**
 	 * 강의 스케줄 과정별 과목출력 메소드
-	 * 백지현
 	 * @param teaNum 교사seq
 	 * @param oCrsSeq 개설과정seq
 	 */
@@ -255,7 +258,6 @@ public class TeacherClass {
 
 	/**
 	 * 교사별 개설강의스케쥴 메소드
-	 * 백지현 
 	 * @param teaNum 교사seq
 	 */
 	public void TeacherClassSchedule(String teaNum) {

@@ -11,6 +11,11 @@ import java.util.Scanner;
 
 import jdbc.DBUtil;
 
+/**
+ * 
+ * @author 신수진
+ * 관리자 출결 관련 메소드
+ */
 public class Admin_Attend {
 	
 	 Connection conn = null;
@@ -30,7 +35,10 @@ public class Admin_Attend {
 		AttendManagementMenu();		//3-5. 출결관리
 		
 	}
-
+	
+	/**
+	 * 관리자 출결 관리 메뉴
+	 */
 	public void AttendManagementMenu() {
 		//출결관리 메뉴
 		while (true) {
@@ -63,6 +71,9 @@ public class Admin_Attend {
 		}
 	}//AttendManagementMenu
 
+	/**
+	 * 학생 출결 조회
+	 */
 	private void AttendStudent() {
 		//학생 출결 조회
 

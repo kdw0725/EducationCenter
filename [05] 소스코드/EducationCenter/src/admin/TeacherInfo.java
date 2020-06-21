@@ -11,16 +11,27 @@ import java.util.Scanner;
 import jdbc.DBUtil;
 import teacher.TeacherBasic;
 
+/**
+ * 
+ * @author 신수진
+ * 학생 정보 클래스
+ */
 public class TeacherInfo {
 	
 	private List<TeacherBasic> list;
 	
 
+	/**
+	 * 교사 정보 담기
+	 */
 	public TeacherInfo() {
 		this.list = new ArrayList<TeacherBasic>();
 		listTeacher();
 	}
 
+	/**
+	 * 교사 정보조회 메인 페이지
+	 */
 	public void showMain(){
 		Scanner scan = new Scanner(System.in);
 		//교사정보조회 > 조회,수정,삭제 메뉴
