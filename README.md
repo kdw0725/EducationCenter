@@ -52,11 +52,26 @@
 ### 👋  Appearance
 교육센터 관리 프로그램입니다.
 ### 📼  관리자
-<img src="img/admin.gif"style = "display : block; max-width : 800px">
+<table>
+	<tr>
+		<td><img src="img/admin.gif"style = "display : block; max-width : 800px"></td>
+	</tr>
+</table>
+
 ### 📼  교사
-<img src="img/teacher.gif"style = "display : block; max-width : 800px">
+<table>
+	<tr>
+		<td><img src="img/teacher.gif"style = "display : block; max-width : 800px"></td>
+	</tr>
+</table>
+
 ### 📼  학생
-<img src="img/student.gif"style = "display : block; max-width : 800px">
+<table>
+	<tr>
+		<td><img src="img/student.gif"style = "display : block; max-width : 800px"></td>
+	</tr>
+</table>
+
 
 ### 📑 Role & Member
 <table>
