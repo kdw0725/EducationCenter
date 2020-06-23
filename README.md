@@ -49,80 +49,14 @@
     </tr>
 </table>
 
-### 📼  Appearance
+### 👋  Appearance
 교육센터 관리 프로그램입니다.
-<h3>관리자</h3>
-<table>
-	<tr>
-		<th>교사관리</th>
-		<th>학생관리</th>
-		<th>기초정보관리</th>
-	</tr>
-	<tr>
-		<th width="300"><img src="img/admin-01.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/admin-02.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/admin-03.gif" style="display : block; max-width:300px"></th>
-	</tr>
-	<tr>
-		<th>개설과정관리</th>
-		<th>출결관리</th>
-		<th>체온관리</th>
-	</tr>
-	<tr>
-		<th width="300"><img src="img/admin-04.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/admin-05.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/admin-06.gif" style="display : block; max-width:300px"></th>
-	</tr>
-</table>
-
-<h3>교사</h3>
-<table>
-	<tr>
-		<th>출결관리</th>
-		<th>강의스케쥴조회</th>
-		<th>배점관리</th>
-	</tr>
-	<tr>
-		<th width="300"><img src="img/teacher-01.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/teacher-02.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/teacher-03.gif" style="display : block; max-width:300px"></th>
-	</tr>
-	<tr>
-		<th>성적관리</th>
-		<th>학생관리</th>
-		<th>교사평가관리</th>
-	</tr>
-	<tr>
-		<th width="300"><img src="img/teacher-04.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/teacher-05.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/teacher-06.gif" style="display : block; max-width:300px"></th>
-	</tr>
-</table>
-
-<h3>교육생</h3>
-<table>
-	<tr>
-		<th>교사평가관리</th>
-		<th>출결관리</th>
-		<th>체온조회</th>
-	</tr>
-	<tr>
-		<th width="300"><img src="img/student-01.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/student-02.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/student-03.gif" style="display : block; max-width:300px"></th>
-	</tr>
-	<tr>
-		<th>취업현황조회</th>
-		<th>수강신청</th>
-		<th>수강신청</th>
-	</tr>
-	<tr>
-		<th width="300"><img src="img/student-04.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/student-05.gif" style="display : block; max-width:300px"></th>
-		<th width="300"><img src="img/student-06.gif" style="display : block; max-width:300px"></th>
-	</tr>
-</table>
-
+### 📼  관리자
+<img src="img/admin.gif"style = "display : block; max-width : 800px">
+### 📼  교사
+<img src="img/teacher.gif"style = "display : block; max-width : 800px">
+### 📼  학생
+<img src="img/student.gif"style = "display : block; max-width : 800px">
 
 ### 📑 Role & Member
 <table>
